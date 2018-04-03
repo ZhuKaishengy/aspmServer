@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db2.dao.VerifiedInvoiceMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db2.domain.VerifiedInvoice">
+    <id column="Code" jdbcType="VARCHAR" property="code" />
+    <id column="Number" jdbcType="CHAR" property="number" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="Date" jdbcType="TIMESTAMP" property="date" />
+    <result column="Device" jdbcType="CHAR" property="device" />
+    <result column="CheckCode" jdbcType="CHAR" property="checkcode" />
+    <result column="BuyerName" jdbcType="NVARCHAR" property="buyername" />
+    <result column="BuyerTaxCode" jdbcType="VARCHAR" property="buyertaxcode" />
+    <result column="BuyerAddressPhone" jdbcType="NVARCHAR" property="buyeraddressphone" />
+    <result column="BuyerBankAccount" jdbcType="NVARCHAR" property="buyerbankaccount" />
+    <result column="SellerName" jdbcType="NVARCHAR" property="sellername" />
+    <result column="SellerTaxCode" jdbcType="VARCHAR" property="sellertaxcode" />
+    <result column="SellerAddressPhone" jdbcType="NVARCHAR" property="selleraddressphone" />
+    <result column="SellerBankAccount" jdbcType="NVARCHAR" property="sellerbankaccount" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="Tax" jdbcType="DECIMAL" property="tax" />
+    <result column="AmountWithTax" jdbcType="DECIMAL" property="amountwithtax" />
+    <result column="Memo" jdbcType="NVARCHAR" property="memo" />
+    <result column="IsCanceled" jdbcType="BIT" property="iscanceled" />
+    <result column="IsListAdded" jdbcType="BIT" property="islistadded" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Code, Number, Type, Date, Device, CheckCode, BuyerName, BuyerTaxCode, BuyerAddressPhone, 
+    BuyerBankAccount, SellerName, SellerTaxCode, SellerAddressPhone, SellerBankAccount, 
+    Amount, Tax, AmountWithTax, Memo, IsCanceled, IsListAdded
+  </sql>
+  <select id="selectByExample" parameterType="com.aisino.db2.domain.VerifiedInvoiceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from VerifiedInvoice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.aisino.db2.domain.VerifiedInvoiceKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from VerifiedInvoice
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.aisino.db2.domain.VerifiedInvoiceKey">
+    delete from VerifiedInvoice
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aisino.db2.domain.VerifiedInvoiceExample">
+    delete from VerifiedInvoice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db2.domain.VerifiedInvoice">
+    insert into VerifiedInvoice (Code, Number, Type, 
+      Date, Device, CheckCode, 
+      BuyerName, BuyerTaxCode, BuyerAddressPhone, 
+      BuyerBankAccount, SellerName, SellerTaxCode, 
+      SellerAddressPhone, SellerBankAccount, 
+      Amount, Tax, AmountWithTax, 
+      Memo, IsCanceled, IsListAdded
+      )
+    values (#{code,jdbcType=VARCHAR}, #{number,jdbcType=CHAR}, #{type,jdbcType=CHAR}, 
+      #{date,jdbcType=TIMESTAMP}, #{device,jdbcType=CHAR}, #{checkcode,jdbcType=CHAR}, 
+      #{buyername,jdbcType=NVARCHAR}, #{buyertaxcode,jdbcType=VARCHAR}, #{buyeraddressphone,jdbcType=NVARCHAR}, 
+      #{buyerbankaccount,jdbcType=NVARCHAR}, #{sellername,jdbcType=NVARCHAR}, #{sellertaxcode,jdbcType=VARCHAR}, 
+      #{selleraddressphone,jdbcType=NVARCHAR}, #{sellerbankaccount,jdbcType=NVARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{tax,jdbcType=DECIMAL}, #{amountwithtax,jdbcType=DECIMAL}, 
+      #{memo,jdbcType=NVARCHAR}, #{iscanceled,jdbcType=BIT}, #{islistadded,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db2.domain.VerifiedInvoice">
+    insert into VerifiedInvoice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="number != null">
+        Number,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="date != null">
+        Date,
+      </if>
+      <if test="device != null">
+        Device,
+      </if>
+      <if test="checkcode != null">
+        CheckCode,
+      </if>
+      <if test="buyername != null">
+        BuyerName,
+      </if>
+      <if test="buyertaxcode != null">
+        BuyerTaxCode,
+      </if>
+      <if test="buyeraddressphone != null">
+        BuyerAddressPhone,
+      </if>
+      <if test="buyerbankaccount != null">
+        BuyerBankAccount,
+      </if>
+      <if test="sellername != null">
+        SellerName,
+      </if>
+      <if test="sellertaxcode != null">
+        SellerTaxCode,
+      </if>
+      <if test="selleraddressphone != null">
+        SellerAddressPhone,
+      </if>
+      <if test="sellerbankaccount != null">
+        SellerBankAccount,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="tax != null">
+        Tax,
+      </if>
+      <if test="amountwithtax != null">
+        AmountWithTax,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="iscanceled != null">
+        IsCanceled,
+      </if>
+      <if test="islistadded != null">
+        IsListAdded,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="device != null">
+        #{device,jdbcType=CHAR},
+      </if>
+      <if test="checkcode != null">
+        #{checkcode,jdbcType=CHAR},
+      </if>
+      <if test="buyername != null">
+        #{buyername,jdbcType=NVARCHAR},
+      </if>
+      <if test="buyertaxcode != null">
+        #{buyertaxcode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeraddressphone != null">
+        #{buyeraddressphone,jdbcType=NVARCHAR},
+      </if>
+      <if test="buyerbankaccount != null">
+        #{buyerbankaccount,jdbcType=NVARCHAR},
+      </if>
+      <if test="sellername != null">
+        #{sellername,jdbcType=NVARCHAR},
+      </if>
+      <if test="sellertaxcode != null">
+        #{sellertaxcode,jdbcType=VARCHAR},
+      </if>
+      <if test="selleraddressphone != null">
+        #{selleraddressphone,jdbcType=NVARCHAR},
+      </if>
+      <if test="sellerbankaccount != null">
+        #{sellerbankaccount,jdbcType=NVARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="amountwithtax != null">
+        #{amountwithtax,jdbcType=DECIMAL},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=NVARCHAR},
+      </if>
+      <if test="iscanceled != null">
+        #{iscanceled,jdbcType=BIT},
+      </if>
+      <if test="islistadded != null">
+        #{islistadded,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db2.domain.VerifiedInvoiceExample" resultType="java.lang.Long">
+    select count(*) from VerifiedInvoice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update VerifiedInvoice
+    <set>
+      <if test="record.code != null">
+        Code = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.number != null">
+        Number = #{record.number,jdbcType=CHAR},
+      </if>
+      <if test="record.type != null">
+        Type = #{record.type,jdbcType=CHAR},
+      </if>
+      <if test="record.date != null">
+        Date = #{record.date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.device != null">
+        Device = #{record.device,jdbcType=CHAR},
+      </if>
+      <if test="record.checkcode != null">
+        CheckCode = #{record.checkcode,jdbcType=CHAR},
+      </if>
+      <if test="record.buyername != null">
+        BuyerName = #{record.buyername,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.buyertaxcode != null">
+        BuyerTaxCode = #{record.buyertaxcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyeraddressphone != null">
+        BuyerAddressPhone = #{record.buyeraddressphone,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.buyerbankaccount != null">
+        BuyerBankAccount = #{record.buyerbankaccount,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.sellername != null">
+        SellerName = #{record.sellername,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.sellertaxcode != null">
+        SellerTaxCode = #{record.sellertaxcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selleraddressphone != null">
+        SellerAddressPhone = #{record.selleraddressphone,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.sellerbankaccount != null">
+        SellerBankAccount = #{record.sellerbankaccount,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.amount != null">
+        Amount = #{record.amount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tax != null">
+        Tax = #{record.tax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.amountwithtax != null">
+        AmountWithTax = #{record.amountwithtax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.memo != null">
+        Memo = #{record.memo,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.iscanceled != null">
+        IsCanceled = #{record.iscanceled,jdbcType=BIT},
+      </if>
+      <if test="record.islistadded != null">
+        IsListAdded = #{record.islistadded,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update VerifiedInvoice
+    set Code = #{record.code,jdbcType=VARCHAR},
+      Number = #{record.number,jdbcType=CHAR},
+      Type = #{record.type,jdbcType=CHAR},
+      Date = #{record.date,jdbcType=TIMESTAMP},
+      Device = #{record.device,jdbcType=CHAR},
+      CheckCode = #{record.checkcode,jdbcType=CHAR},
+      BuyerName = #{record.buyername,jdbcType=NVARCHAR},
+      BuyerTaxCode = #{record.buyertaxcode,jdbcType=VARCHAR},
+      BuyerAddressPhone = #{record.buyeraddressphone,jdbcType=NVARCHAR},
+      BuyerBankAccount = #{record.buyerbankaccount,jdbcType=NVARCHAR},
+      SellerName = #{record.sellername,jdbcType=NVARCHAR},
+      SellerTaxCode = #{record.sellertaxcode,jdbcType=VARCHAR},
+      SellerAddressPhone = #{record.selleraddressphone,jdbcType=NVARCHAR},
+      SellerBankAccount = #{record.sellerbankaccount,jdbcType=NVARCHAR},
+      Amount = #{record.amount,jdbcType=DECIMAL},
+      Tax = #{record.tax,jdbcType=DECIMAL},
+      AmountWithTax = #{record.amountwithtax,jdbcType=DECIMAL},
+      Memo = #{record.memo,jdbcType=NVARCHAR},
+      IsCanceled = #{record.iscanceled,jdbcType=BIT},
+      IsListAdded = #{record.islistadded,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aisino.db2.domain.VerifiedInvoice">
+    update VerifiedInvoice
+    <set>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="date != null">
+        Date = #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="device != null">
+        Device = #{device,jdbcType=CHAR},
+      </if>
+      <if test="checkcode != null">
+        CheckCode = #{checkcode,jdbcType=CHAR},
+      </if>
+      <if test="buyername != null">
+        BuyerName = #{buyername,jdbcType=NVARCHAR},
+      </if>
+      <if test="buyertaxcode != null">
+        BuyerTaxCode = #{buyertaxcode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeraddressphone != null">
+        BuyerAddressPhone = #{buyeraddressphone,jdbcType=NVARCHAR},
+      </if>
+      <if test="buyerbankaccount != null">
+        BuyerBankAccount = #{buyerbankaccount,jdbcType=NVARCHAR},
+      </if>
+      <if test="sellername != null">
+        SellerName = #{sellername,jdbcType=NVARCHAR},
+      </if>
+      <if test="sellertaxcode != null">
+        SellerTaxCode = #{sellertaxcode,jdbcType=VARCHAR},
+      </if>
+      <if test="selleraddressphone != null">
+        SellerAddressPhone = #{selleraddressphone,jdbcType=NVARCHAR},
+      </if>
+      <if test="sellerbankaccount != null">
+        SellerBankAccount = #{sellerbankaccount,jdbcType=NVARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        Tax = #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="amountwithtax != null">
+        AmountWithTax = #{amountwithtax,jdbcType=DECIMAL},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=NVARCHAR},
+      </if>
+      <if test="iscanceled != null">
+        IsCanceled = #{iscanceled,jdbcType=BIT},
+      </if>
+      <if test="islistadded != null">
+        IsListAdded = #{islistadded,jdbcType=BIT},
+      </if>
+    </set>
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aisino.db2.domain.VerifiedInvoice">
+    update VerifiedInvoice
+    set Type = #{type,jdbcType=CHAR},
+      Date = #{date,jdbcType=TIMESTAMP},
+      Device = #{device,jdbcType=CHAR},
+      CheckCode = #{checkcode,jdbcType=CHAR},
+      BuyerName = #{buyername,jdbcType=NVARCHAR},
+      BuyerTaxCode = #{buyertaxcode,jdbcType=VARCHAR},
+      BuyerAddressPhone = #{buyeraddressphone,jdbcType=NVARCHAR},
+      BuyerBankAccount = #{buyerbankaccount,jdbcType=NVARCHAR},
+      SellerName = #{sellername,jdbcType=NVARCHAR},
+      SellerTaxCode = #{sellertaxcode,jdbcType=VARCHAR},
+      SellerAddressPhone = #{selleraddressphone,jdbcType=NVARCHAR},
+      SellerBankAccount = #{sellerbankaccount,jdbcType=NVARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      Tax = #{tax,jdbcType=DECIMAL},
+      AmountWithTax = #{amountwithtax,jdbcType=DECIMAL},
+      Memo = #{memo,jdbcType=NVARCHAR},
+      IsCanceled = #{iscanceled,jdbcType=BIT},
+      IsListAdded = #{islistadded,jdbcType=BIT}
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=CHAR}
+  </update>
+</mapper>

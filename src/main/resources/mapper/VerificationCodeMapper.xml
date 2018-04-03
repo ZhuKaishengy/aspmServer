@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db2.dao.VerificationCodeMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db2.domain.VerificationCode">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="Zone" jdbcType="CHAR" property="zone" />
+    <result column="ImageTip" jdbcType="VARCHAR" property="imagetip" />
+    <result column="Content" jdbcType="VARCHAR" property="content" />
+    <result column="Verify" jdbcType="BIT" property="verify" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.aisino.db2.domain.VerificationCode">
+    <result column="Image" jdbcType="LONGVARBINARY" property="image" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, Zone, ImageTip, Content, Verify
+  </sql>
+  <sql id="Blob_Column_List">
+    Image
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.aisino.db2.domain.VerificationCodeExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from VerificationCode
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.aisino.db2.domain.VerificationCodeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from VerificationCode
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from VerificationCode
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from VerificationCode
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aisino.db2.domain.VerificationCodeExample">
+    delete from VerificationCode
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db2.domain.VerificationCode">
+    insert into VerificationCode (ID, Zone, ImageTip, 
+      Content, Verify, Image
+      )
+    values (#{id,jdbcType=VARCHAR}, #{zone,jdbcType=CHAR}, #{imagetip,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{verify,jdbcType=BIT}, #{image,jdbcType=LONGVARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db2.domain.VerificationCode">
+    insert into VerificationCode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="zone != null">
+        Zone,
+      </if>
+      <if test="imagetip != null">
+        ImageTip,
+      </if>
+      <if test="content != null">
+        Content,
+      </if>
+      <if test="verify != null">
+        Verify,
+      </if>
+      <if test="image != null">
+        Image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="zone != null">
+        #{zone,jdbcType=CHAR},
+      </if>
+      <if test="imagetip != null">
+        #{imagetip,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="verify != null">
+        #{verify,jdbcType=BIT},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db2.domain.VerificationCodeExample" resultType="java.lang.Long">
+    select count(*) from VerificationCode
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update VerificationCode
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zone != null">
+        Zone = #{record.zone,jdbcType=CHAR},
+      </if>
+      <if test="record.imagetip != null">
+        ImageTip = #{record.imagetip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        Content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.verify != null">
+        Verify = #{record.verify,jdbcType=BIT},
+      </if>
+      <if test="record.image != null">
+        Image = #{record.image,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update VerificationCode
+    set ID = #{record.id,jdbcType=VARCHAR},
+      Zone = #{record.zone,jdbcType=CHAR},
+      ImageTip = #{record.imagetip,jdbcType=VARCHAR},
+      Content = #{record.content,jdbcType=VARCHAR},
+      Verify = #{record.verify,jdbcType=BIT},
+      Image = #{record.image,jdbcType=LONGVARBINARY}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update VerificationCode
+    set ID = #{record.id,jdbcType=VARCHAR},
+      Zone = #{record.zone,jdbcType=CHAR},
+      ImageTip = #{record.imagetip,jdbcType=VARCHAR},
+      Content = #{record.content,jdbcType=VARCHAR},
+      Verify = #{record.verify,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aisino.db2.domain.VerificationCode">
+    update VerificationCode
+    <set>
+      <if test="zone != null">
+        Zone = #{zone,jdbcType=CHAR},
+      </if>
+      <if test="imagetip != null">
+        ImageTip = #{imagetip,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        Content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="verify != null">
+        Verify = #{verify,jdbcType=BIT},
+      </if>
+      <if test="image != null">
+        Image = #{image,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.aisino.db2.domain.VerificationCode">
+    update VerificationCode
+    set Zone = #{zone,jdbcType=CHAR},
+      ImageTip = #{imagetip,jdbcType=VARCHAR},
+      Content = #{content,jdbcType=VARCHAR},
+      Verify = #{verify,jdbcType=BIT},
+      Image = #{image,jdbcType=LONGVARBINARY}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aisino.db2.domain.VerificationCode">
+    update VerificationCode
+    set Zone = #{zone,jdbcType=CHAR},
+      ImageTip = #{imagetip,jdbcType=VARCHAR},
+      Content = #{content,jdbcType=VARCHAR},
+      Verify = #{verify,jdbcType=BIT}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db2.dao.InvoiceIndexMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db2.domain.InvoiceIndex">
+    <id column="Code" jdbcType="VARCHAR" property="code" />
+    <id column="Number" jdbcType="VARCHAR" property="number" />
+    <result column="Type" jdbcType="CHAR" property="type" />
+    <result column="Date" jdbcType="TIMESTAMP" property="date" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="CheckCode" jdbcType="CHAR" property="checkcode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Code, Number, Type, Date, Amount, CheckCode
+  </sql>
+  <select id="selectByExample" parameterType="com.aisino.db2.domain.InvoiceIndexExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from InvoiceIndex
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.aisino.db2.domain.InvoiceIndexKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from InvoiceIndex
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.aisino.db2.domain.InvoiceIndexKey">
+    delete from InvoiceIndex
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aisino.db2.domain.InvoiceIndexExample">
+    delete from InvoiceIndex
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db2.domain.InvoiceIndex">
+    insert into InvoiceIndex (Code, Number, Type, 
+      Date, Amount, CheckCode
+      )
+    values (#{code,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, 
+      #{date,jdbcType=TIMESTAMP}, #{amount,jdbcType=DECIMAL}, #{checkcode,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db2.domain.InvoiceIndex">
+    insert into InvoiceIndex
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="number != null">
+        Number,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="date != null">
+        Date,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="checkcode != null">
+        CheckCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="checkcode != null">
+        #{checkcode,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db2.domain.InvoiceIndexExample" resultType="java.lang.Long">
+    select count(*) from InvoiceIndex
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update InvoiceIndex
+    <set>
+      <if test="record.code != null">
+        Code = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.number != null">
+        Number = #{record.number,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        Type = #{record.type,jdbcType=CHAR},
+      </if>
+      <if test="record.date != null">
+        Date = #{record.date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.amount != null">
+        Amount = #{record.amount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.checkcode != null">
+        CheckCode = #{record.checkcode,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update InvoiceIndex
+    set Code = #{record.code,jdbcType=VARCHAR},
+      Number = #{record.number,jdbcType=VARCHAR},
+      Type = #{record.type,jdbcType=CHAR},
+      Date = #{record.date,jdbcType=TIMESTAMP},
+      Amount = #{record.amount,jdbcType=DECIMAL},
+      CheckCode = #{record.checkcode,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aisino.db2.domain.InvoiceIndex">
+    update InvoiceIndex
+    <set>
+      <if test="type != null">
+        Type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="date != null">
+        Date = #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="checkcode != null">
+        CheckCode = #{checkcode,jdbcType=CHAR},
+      </if>
+    </set>
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aisino.db2.domain.InvoiceIndex">
+    update InvoiceIndex
+    set Type = #{type,jdbcType=CHAR},
+      Date = #{date,jdbcType=TIMESTAMP},
+      Amount = #{amount,jdbcType=DECIMAL},
+      CheckCode = #{checkcode,jdbcType=CHAR}
+    where Code = #{code,jdbcType=VARCHAR}
+      and Number = #{number,jdbcType=VARCHAR}
+  </update>
+</mapper>

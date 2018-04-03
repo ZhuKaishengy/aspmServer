@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: aspm-server
+  datasource:
+    db1:
+      username: CRM
+      password: LNCRM_91#
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@192.168.0.91:1521:CRMLN
+    db2:
+      username: sa
+      password: GL86P_#
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://192.168.0.92:1433;DatabaseName=Aisino_Service_Platform
+  profiles:
+    active: dev
+server:
+  port: 9001
+---
+spring:
+  profiles: dev
+profilepath: D:\\Workspaces\\idea\\aspmserver\\src\\main\\resources\\token.properties
+
+---
+spring:
+  profiles: cloud
+profilepath: F:\\aspm-server\\conf\\token.properties

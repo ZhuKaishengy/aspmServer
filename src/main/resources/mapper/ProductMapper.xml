@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db2.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db2.domain.Product">
+    <result column="PRODUCT_ID" jdbcType="INTEGER" property="productId" />
+    <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName" />
+    <result column="PRODUCT_DESC" jdbcType="VARCHAR" property="productDesc" />
+    <result column="RESEARCH_UNIT" jdbcType="VARCHAR" property="researchUnit" />
+    <result column="CONTACTS" jdbcType="VARCHAR" property="contacts" />
+    <result column="CONTACT_NUMBER" jdbcType="VARCHAR" property="contactNumber" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="INSTALL_FILE_NAME" jdbcType="VARCHAR" property="installFileName" />
+    <result column="INSTALL_FILE_PATH" jdbcType="VARCHAR" property="installFilePath" />
+    <result column="LATEST_VERSION_NO" jdbcType="VARCHAR" property="latestVersionNo" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+    <result column="CREATE_ID" jdbcType="VARCHAR" property="createId" />
+    <result column="UPDATE_ID" jdbcType="VARCHAR" property="updateId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PRODUCT_ID, PRODUCT_NAME, PRODUCT_DESC, RESEARCH_UNIT, CONTACTS, CONTACT_NUMBER, 
+    CREATE_TIME, UPDATE_TIME, INSTALL_FILE_NAME, INSTALL_FILE_PATH, LATEST_VERSION_NO, 
+    STATE, CREATE_ID, UPDATE_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.aisino.db2.domain.ProductExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ASP_PRODUCT_INFO_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.aisino.db2.domain.ProductExample">
+    delete from ASP_PRODUCT_INFO_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db2.domain.Product">
+    insert into ASP_PRODUCT_INFO_TAB (PRODUCT_ID, PRODUCT_NAME, PRODUCT_DESC, 
+      RESEARCH_UNIT, CONTACTS, CONTACT_NUMBER, 
+      CREATE_TIME, UPDATE_TIME, INSTALL_FILE_NAME, 
+      INSTALL_FILE_PATH, LATEST_VERSION_NO, STATE, 
+      CREATE_ID, UPDATE_ID)
+    values (#{productId,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, #{productDesc,jdbcType=VARCHAR}, 
+      #{researchUnit,jdbcType=VARCHAR}, #{contacts,jdbcType=VARCHAR}, #{contactNumber,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{installFileName,jdbcType=VARCHAR}, 
+      #{installFilePath,jdbcType=VARCHAR}, #{latestVersionNo,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{createId,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db2.domain.Product">
+    insert into ASP_PRODUCT_INFO_TAB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="productName != null">
+        PRODUCT_NAME,
+      </if>
+      <if test="productDesc != null">
+        PRODUCT_DESC,
+      </if>
+      <if test="researchUnit != null">
+        RESEARCH_UNIT,
+      </if>
+      <if test="contacts != null">
+        CONTACTS,
+      </if>
+      <if test="contactNumber != null">
+        CONTACT_NUMBER,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="installFileName != null">
+        INSTALL_FILE_NAME,
+      </if>
+      <if test="installFilePath != null">
+        INSTALL_FILE_PATH,
+      </if>
+      <if test="latestVersionNo != null">
+        LATEST_VERSION_NO,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="createId != null">
+        CREATE_ID,
+      </if>
+      <if test="updateId != null">
+        UPDATE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productDesc != null">
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="researchUnit != null">
+        #{researchUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="contacts != null">
+        #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null">
+        #{contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installFileName != null">
+        #{installFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="installFilePath != null">
+        #{installFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="latestVersionNo != null">
+        #{latestVersionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateId != null">
+        #{updateId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db2.domain.ProductExample" resultType="java.lang.Long">
+    select count(*) from ASP_PRODUCT_INFO_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ASP_PRODUCT_INFO_TAB
+    <set>
+      <if test="record.productId != null">
+        PRODUCT_ID = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.productName != null">
+        PRODUCT_NAME = #{record.productName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productDesc != null">
+        PRODUCT_DESC = #{record.productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.researchUnit != null">
+        RESEARCH_UNIT = #{record.researchUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contacts != null">
+        CONTACTS = #{record.contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactNumber != null">
+        CONTACT_NUMBER = #{record.contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.installFileName != null">
+        INSTALL_FILE_NAME = #{record.installFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.installFilePath != null">
+        INSTALL_FILE_PATH = #{record.installFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.latestVersionNo != null">
+        LATEST_VERSION_NO = #{record.latestVersionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createId != null">
+        CREATE_ID = #{record.createId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateId != null">
+        UPDATE_ID = #{record.updateId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ASP_PRODUCT_INFO_TAB
+    set PRODUCT_ID = #{record.productId,jdbcType=INTEGER},
+      PRODUCT_NAME = #{record.productName,jdbcType=VARCHAR},
+      PRODUCT_DESC = #{record.productDesc,jdbcType=VARCHAR},
+      RESEARCH_UNIT = #{record.researchUnit,jdbcType=VARCHAR},
+      CONTACTS = #{record.contacts,jdbcType=VARCHAR},
+      CONTACT_NUMBER = #{record.contactNumber,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      INSTALL_FILE_NAME = #{record.installFileName,jdbcType=VARCHAR},
+      INSTALL_FILE_PATH = #{record.installFilePath,jdbcType=VARCHAR},
+      LATEST_VERSION_NO = #{record.latestVersionNo,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      CREATE_ID = #{record.createId,jdbcType=VARCHAR},
+      UPDATE_ID = #{record.updateId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db1.dao.SysOrgMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db1.domain.SysOrg">
+    <id column="ORG_ID" jdbcType="DECIMAL" property="orgId" />
+    <result column="ORG_NAME" jdbcType="VARCHAR" property="orgName" />
+    <result column="PARENT_ORG_ID" jdbcType="DECIMAL" property="parentOrgId" />
+    <result column="UNITS_LEVEL" jdbcType="DECIMAL" property="unitsLevel" />
+    <result column="BUSINESS_ADDRESS" jdbcType="VARCHAR" property="businessAddress" />
+    <result column="COMMUNICATION_ADDRESS" jdbcType="VARCHAR" property="communicationAddress" />
+    <result column="ZIP_CODE" jdbcType="VARCHAR" property="zipCode" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="OPRETOR" jdbcType="VARCHAR" property="opretor" />
+    <result column="HOTLINE" jdbcType="VARCHAR" property="hotline" />
+    <result column="FAX" jdbcType="VARCHAR" property="fax" />
+    <result column="PRINCIPAL_TELEPHONE" jdbcType="VARCHAR" property="principalTelephone" />
+    <result column="PRINCIPAL_MOBILE" jdbcType="VARCHAR" property="principalMobile" />
+    <result column="COMPLAIN_TELEPHONE" jdbcType="VARCHAR" property="complainTelephone" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="DEFAULT_CHARGE_AMOUNT" jdbcType="DECIMAL" property="defaultChargeAmount" />
+    <result column="DEFAULT_CHARGE_EXPIRY_RULE" jdbcType="DECIMAL" property="defaultChargeExpiryRule" />
+    <result column="TAX_ID" jdbcType="VARCHAR" property="taxId" />
+    <result column="REGISTERED_FUND" jdbcType="VARCHAR" property="registeredFund" />
+    <result column="ENTERPRISE_TYPE_ID" jdbcType="DECIMAL" property="enterpriseTypeId" />
+    <result column="LEGAL_PERSON" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="HEAD_OF_UNIT" jdbcType="VARCHAR" property="headOfUnit" />
+    <result column="SERVICE_VEHICLES" jdbcType="DECIMAL" property="serviceVehicles" />
+    <result column="UIDVALIDITY" jdbcType="DECIMAL" property="uidvalidity" />
+    <result column="ZONE_ID" jdbcType="DECIMAL" property="zoneId" />
+    <result column="ORG_TAX_DEPARTMENT_ID" jdbcType="DECIMAL" property="orgTaxDepartmentId" />
+    <result column="FOUNDATION_DATE" jdbcType="TIMESTAMP" property="foundationDate" />
+    <result column="ANTICOUNTERFEITING_DATE" jdbcType="TIMESTAMP" property="anticounterfeitingDate" />
+    <result column="CREAT_DATE" jdbcType="TIMESTAMP" property="creatDate" />
+    <result column="FILE_OFFICIAL_SEAL" jdbcType="VARCHAR" property="fileOfficialSeal" />
+    <result column="GENERAL_MANAGER" jdbcType="VARCHAR" property="generalManager" />
+    <result column="ASSISTANT_GENERAL_MANAGER" jdbcType="VARCHAR" property="assistantGeneralManager" />
+    <result column="FINANCE_MANAGER" jdbcType="VARCHAR" property="financeManager" />
+    <result column="CUSTOMER_SERVICE_MANAGER" jdbcType="VARCHAR" property="customerServiceManager" />
+    <result column="CONSIGNEE" jdbcType="VARCHAR" property="consignee" />
+    <result column="BUSINESS" jdbcType="VARCHAR" property="business" />
+    <result column="FIRST_OPEN_BAD_PRINCIPAL" jdbcType="VARCHAR" property="firstOpenBadPrincipal" />
+    <result column="OTHER_CONTACT" jdbcType="VARCHAR" property="otherContact" />
+    <result column="ACCOUNT_BANK" jdbcType="VARCHAR" property="accountBank" />
+    <result column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <result column="TAXPAYER_IDENTIFIER_NUMBER" jdbcType="VARCHAR" property="taxpayerIdentifierNumber" />
+    <result column="BILL_TELEPHONE" jdbcType="VARCHAR" property="billTelephone" />
+    <result column="BILL_ACCOUNT_BANK" jdbcType="VARCHAR" property="billAccountBank" />
+    <result column="BILL_ADDRESS" jdbcType="VARCHAR" property="billAddress" />
+    <result column="RECEIVE_ZIP_CODE" jdbcType="VARCHAR" property="receiveZipCode" />
+    <result column="RECEIVE_ADDRESS" jdbcType="VARCHAR" property="receiveAddress" />
+    <result column="COMPANY_TRAIN_INFORMATION" jdbcType="VARCHAR" property="companyTrainInformation" />
+    <result column="COMPANY_ATTRIBUTE" jdbcType="DECIMAL" property="companyAttribute" />
+    <result column="COMPANY_PROPERTIES" jdbcType="DECIMAL" property="companyProperties" />
+    <result column="PARENT_DEPARTMENT_ID" jdbcType="DECIMAL" property="parentDepartmentId" />
+    <result column="CHANGE_IS_VALID" jdbcType="DECIMAL" property="changeIsValid" />
+    <result column="ORG_SHORT_NAME" jdbcType="VARCHAR" property="orgShortName" />
+    <result column="ILEAF" jdbcType="DECIMAL" property="ileaf" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="FWDWID" jdbcType="DECIMAL" property="fwdwid" />
+    <result column="SYN_DATA_MARK" jdbcType="DECIMAL" property="synDataMark" />
+    <result column="SELF_ZONE_ID" jdbcType="DECIMAL" property="selfZoneId" />
+    <result column="SHOP_ADD_ORG" jdbcType="CHAR" property="shopAddOrg" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ORG_ID, ORG_NAME, PARENT_ORG_ID, UNITS_LEVEL, BUSINESS_ADDRESS, COMMUNICATION_ADDRESS, 
+    ZIP_CODE, AREA_CODE, OPRETOR, HOTLINE, FAX, PRINCIPAL_TELEPHONE, PRINCIPAL_MOBILE, 
+    COMPLAIN_TELEPHONE, URL, EMAIL, DEFAULT_CHARGE_AMOUNT, DEFAULT_CHARGE_EXPIRY_RULE, 
+    TAX_ID, REGISTERED_FUND, ENTERPRISE_TYPE_ID, LEGAL_PERSON, HEAD_OF_UNIT, SERVICE_VEHICLES, 
+    UIDVALIDITY, ZONE_ID, ORG_TAX_DEPARTMENT_ID, FOUNDATION_DATE, ANTICOUNTERFEITING_DATE, 
+    CREAT_DATE, FILE_OFFICIAL_SEAL, GENERAL_MANAGER, ASSISTANT_GENERAL_MANAGER, FINANCE_MANAGER, 
+    CUSTOMER_SERVICE_MANAGER, CONSIGNEE, BUSINESS, FIRST_OPEN_BAD_PRINCIPAL, OTHER_CONTACT, 
+    ACCOUNT_BANK, ACCOUNT, TAXPAYER_IDENTIFIER_NUMBER, BILL_TELEPHONE, BILL_ACCOUNT_BANK, 
+    BILL_ADDRESS, RECEIVE_ZIP_CODE, RECEIVE_ADDRESS, COMPANY_TRAIN_INFORMATION, COMPANY_ATTRIBUTE, 
+    COMPANY_PROPERTIES, PARENT_DEPARTMENT_ID, CHANGE_IS_VALID, ORG_SHORT_NAME, ILEAF, 
+    CODE, FWDWID, SYN_DATA_MARK, SELF_ZONE_ID, SHOP_ADD_ORG
+  </sql>
+  <select id="selectByExample" parameterType="com.aisino.db1.domain.SysOrgExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SYS_ORG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_ORG
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from SYS_ORG
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aisino.db1.domain.SysOrgExample">
+    delete from SYS_ORG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db1.domain.SysOrg">
+    insert into SYS_ORG (ORG_ID, ORG_NAME, PARENT_ORG_ID, 
+      UNITS_LEVEL, BUSINESS_ADDRESS, COMMUNICATION_ADDRESS, 
+      ZIP_CODE, AREA_CODE, OPRETOR, 
+      HOTLINE, FAX, PRINCIPAL_TELEPHONE, 
+      PRINCIPAL_MOBILE, COMPLAIN_TELEPHONE, URL, 
+      EMAIL, DEFAULT_CHARGE_AMOUNT, DEFAULT_CHARGE_EXPIRY_RULE, 
+      TAX_ID, REGISTERED_FUND, ENTERPRISE_TYPE_ID, 
+      LEGAL_PERSON, HEAD_OF_UNIT, SERVICE_VEHICLES, 
+      UIDVALIDITY, ZONE_ID, ORG_TAX_DEPARTMENT_ID, 
+      FOUNDATION_DATE, ANTICOUNTERFEITING_DATE, 
+      CREAT_DATE, FILE_OFFICIAL_SEAL, GENERAL_MANAGER, 
+      ASSISTANT_GENERAL_MANAGER, FINANCE_MANAGER, 
+      CUSTOMER_SERVICE_MANAGER, CONSIGNEE, BUSINESS, 
+      FIRST_OPEN_BAD_PRINCIPAL, OTHER_CONTACT, ACCOUNT_BANK, 
+      ACCOUNT, TAXPAYER_IDENTIFIER_NUMBER, BILL_TELEPHONE, 
+      BILL_ACCOUNT_BANK, BILL_ADDRESS, RECEIVE_ZIP_CODE, 
+      RECEIVE_ADDRESS, COMPANY_TRAIN_INFORMATION, 
+      COMPANY_ATTRIBUTE, COMPANY_PROPERTIES, PARENT_DEPARTMENT_ID, 
+      CHANGE_IS_VALID, ORG_SHORT_NAME, ILEAF, 
+      CODE, FWDWID, SYN_DATA_MARK, 
+      SELF_ZONE_ID, SHOP_ADD_ORG)
+    values (#{orgId,jdbcType=DECIMAL}, #{orgName,jdbcType=VARCHAR}, #{parentOrgId,jdbcType=DECIMAL}, 
+      #{unitsLevel,jdbcType=DECIMAL}, #{businessAddress,jdbcType=VARCHAR}, #{communicationAddress,jdbcType=VARCHAR}, 
+      #{zipCode,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, #{opretor,jdbcType=VARCHAR}, 
+      #{hotline,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{principalTelephone,jdbcType=VARCHAR}, 
+      #{principalMobile,jdbcType=VARCHAR}, #{complainTelephone,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{defaultChargeAmount,jdbcType=DECIMAL}, #{defaultChargeExpiryRule,jdbcType=DECIMAL}, 
+      #{taxId,jdbcType=VARCHAR}, #{registeredFund,jdbcType=VARCHAR}, #{enterpriseTypeId,jdbcType=DECIMAL}, 
+      #{legalPerson,jdbcType=VARCHAR}, #{headOfUnit,jdbcType=VARCHAR}, #{serviceVehicles,jdbcType=DECIMAL}, 
+      #{uidvalidity,jdbcType=DECIMAL}, #{zoneId,jdbcType=DECIMAL}, #{orgTaxDepartmentId,jdbcType=DECIMAL}, 
+      #{foundationDate,jdbcType=TIMESTAMP}, #{anticounterfeitingDate,jdbcType=TIMESTAMP}, 
+      #{creatDate,jdbcType=TIMESTAMP}, #{fileOfficialSeal,jdbcType=VARCHAR}, #{generalManager,jdbcType=VARCHAR}, 
+      #{assistantGeneralManager,jdbcType=VARCHAR}, #{financeManager,jdbcType=VARCHAR}, 
+      #{customerServiceManager,jdbcType=VARCHAR}, #{consignee,jdbcType=VARCHAR}, #{business,jdbcType=VARCHAR}, 
+      #{firstOpenBadPrincipal,jdbcType=VARCHAR}, #{otherContact,jdbcType=VARCHAR}, #{accountBank,jdbcType=VARCHAR}, 
+      #{account,jdbcType=VARCHAR}, #{taxpayerIdentifierNumber,jdbcType=VARCHAR}, #{billTelephone,jdbcType=VARCHAR}, 
+      #{billAccountBank,jdbcType=VARCHAR}, #{billAddress,jdbcType=VARCHAR}, #{receiveZipCode,jdbcType=VARCHAR}, 
+      #{receiveAddress,jdbcType=VARCHAR}, #{companyTrainInformation,jdbcType=VARCHAR}, 
+      #{companyAttribute,jdbcType=DECIMAL}, #{companyProperties,jdbcType=DECIMAL}, #{parentDepartmentId,jdbcType=DECIMAL}, 
+      #{changeIsValid,jdbcType=DECIMAL}, #{orgShortName,jdbcType=VARCHAR}, #{ileaf,jdbcType=DECIMAL}, 
+      #{code,jdbcType=VARCHAR}, #{fwdwid,jdbcType=DECIMAL}, #{synDataMark,jdbcType=DECIMAL}, 
+      #{selfZoneId,jdbcType=DECIMAL}, #{shopAddOrg,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db1.domain.SysOrg">
+    insert into SYS_ORG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="orgName != null">
+        ORG_NAME,
+      </if>
+      <if test="parentOrgId != null">
+        PARENT_ORG_ID,
+      </if>
+      <if test="unitsLevel != null">
+        UNITS_LEVEL,
+      </if>
+      <if test="businessAddress != null">
+        BUSINESS_ADDRESS,
+      </if>
+      <if test="communicationAddress != null">
+        COMMUNICATION_ADDRESS,
+      </if>
+      <if test="zipCode != null">
+        ZIP_CODE,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="opretor != null">
+        OPRETOR,
+      </if>
+      <if test="hotline != null">
+        HOTLINE,
+      </if>
+      <if test="fax != null">
+        FAX,
+      </if>
+      <if test="principalTelephone != null">
+        PRINCIPAL_TELEPHONE,
+      </if>
+      <if test="principalMobile != null">
+        PRINCIPAL_MOBILE,
+      </if>
+      <if test="complainTelephone != null">
+        COMPLAIN_TELEPHONE,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="defaultChargeAmount != null">
+        DEFAULT_CHARGE_AMOUNT,
+      </if>
+      <if test="defaultChargeExpiryRule != null">
+        DEFAULT_CHARGE_EXPIRY_RULE,
+      </if>
+      <if test="taxId != null">
+        TAX_ID,
+      </if>
+      <if test="registeredFund != null">
+        REGISTERED_FUND,
+      </if>
+      <if test="enterpriseTypeId != null">
+        ENTERPRISE_TYPE_ID,
+      </if>
+      <if test="legalPerson != null">
+        LEGAL_PERSON,
+      </if>
+      <if test="headOfUnit != null">
+        HEAD_OF_UNIT,
+      </if>
+      <if test="serviceVehicles != null">
+        SERVICE_VEHICLES,
+      </if>
+      <if test="uidvalidity != null">
+        UIDVALIDITY,
+      </if>
+      <if test="zoneId != null">
+        ZONE_ID,
+      </if>
+      <if test="orgTaxDepartmentId != null">
+        ORG_TAX_DEPARTMENT_ID,
+      </if>
+      <if test="foundationDate != null">
+        FOUNDATION_DATE,
+      </if>
+      <if test="anticounterfeitingDate != null">
+        ANTICOUNTERFEITING_DATE,
+      </if>
+      <if test="creatDate != null">
+        CREAT_DATE,
+      </if>
+      <if test="fileOfficialSeal != null">
+        FILE_OFFICIAL_SEAL,
+      </if>
+      <if test="generalManager != null">
+        GENERAL_MANAGER,
+      </if>
+      <if test="assistantGeneralManager != null">
+        ASSISTANT_GENERAL_MANAGER,
+      </if>
+      <if test="financeManager != null">
+        FINANCE_MANAGER,
+      </if>
+      <if test="customerServiceManager != null">
+        CUSTOMER_SERVICE_MANAGER,
+      </if>
+      <if test="consignee != null">
+        CONSIGNEE,
+      </if>
+      <if test="business != null">
+        BUSINESS,
+      </if>
+      <if test="firstOpenBadPrincipal != null">
+        FIRST_OPEN_BAD_PRINCIPAL,
+      </if>
+      <if test="otherContact != null">
+        OTHER_CONTACT,
+      </if>
+      <if test="accountBank != null">
+        ACCOUNT_BANK,
+      </if>
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="taxpayerIdentifierNumber != null">
+        TAXPAYER_IDENTIFIER_NUMBER,
+      </if>
+      <if test="billTelephone != null">
+        BILL_TELEPHONE,
+      </if>
+      <if test="billAccountBank != null">
+        BILL_ACCOUNT_BANK,
+      </if>
+      <if test="billAddress != null">
+        BILL_ADDRESS,
+      </if>
+      <if test="receiveZipCode != null">
+        RECEIVE_ZIP_CODE,
+      </if>
+      <if test="receiveAddress != null">
+        RECEIVE_ADDRESS,
+      </if>
+      <if test="companyTrainInformation != null">
+        COMPANY_TRAIN_INFORMATION,
+      </if>
+      <if test="companyAttribute != null">
+        COMPANY_ATTRIBUTE,
+      </if>
+      <if test="companyProperties != null">
+        COMPANY_PROPERTIES,
+      </if>
+      <if test="parentDepartmentId != null">
+        PARENT_DEPARTMENT_ID,
+      </if>
+      <if test="changeIsValid != null">
+        CHANGE_IS_VALID,
+      </if>
+      <if test="orgShortName != null">
+        ORG_SHORT_NAME,
+      </if>
+      <if test="ileaf != null">
+        ILEAF,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="fwdwid != null">
+        FWDWID,
+      </if>
+      <if test="synDataMark != null">
+        SYN_DATA_MARK,
+      </if>
+      <if test="selfZoneId != null">
+        SELF_ZONE_ID,
+      </if>
+      <if test="shopAddOrg != null">
+        SHOP_ADD_ORG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orgId != null">
+        #{orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgName != null">
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgId != null">
+        #{parentOrgId,jdbcType=DECIMAL},
+      </if>
+      <if test="unitsLevel != null">
+        #{unitsLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="businessAddress != null">
+        #{businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="communicationAddress != null">
+        #{communicationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null">
+        #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="opretor != null">
+        #{opretor,jdbcType=VARCHAR},
+      </if>
+      <if test="hotline != null">
+        #{hotline,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="principalTelephone != null">
+        #{principalTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="principalMobile != null">
+        #{principalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="complainTelephone != null">
+        #{complainTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultChargeAmount != null">
+        #{defaultChargeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultChargeExpiryRule != null">
+        #{defaultChargeExpiryRule,jdbcType=DECIMAL},
+      </if>
+      <if test="taxId != null">
+        #{taxId,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredFund != null">
+        #{registeredFund,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTypeId != null">
+        #{enterpriseTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="headOfUnit != null">
+        #{headOfUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceVehicles != null">
+        #{serviceVehicles,jdbcType=DECIMAL},
+      </if>
+      <if test="uidvalidity != null">
+        #{uidvalidity,jdbcType=DECIMAL},
+      </if>
+      <if test="zoneId != null">
+        #{zoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgTaxDepartmentId != null">
+        #{orgTaxDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="foundationDate != null">
+        #{foundationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anticounterfeitingDate != null">
+        #{anticounterfeitingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatDate != null">
+        #{creatDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileOfficialSeal != null">
+        #{fileOfficialSeal,jdbcType=VARCHAR},
+      </if>
+      <if test="generalManager != null">
+        #{generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="assistantGeneralManager != null">
+        #{assistantGeneralManager,jdbcType=VARCHAR},
+      </if>
+      <if test="financeManager != null">
+        #{financeManager,jdbcType=VARCHAR},
+      </if>
+      <if test="customerServiceManager != null">
+        #{customerServiceManager,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null">
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="business != null">
+        #{business,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOpenBadPrincipal != null">
+        #{firstOpenBadPrincipal,jdbcType=VARCHAR},
+      </if>
+      <if test="otherContact != null">
+        #{otherContact,jdbcType=VARCHAR},
+      </if>
+      <if test="accountBank != null">
+        #{accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerIdentifierNumber != null">
+        #{taxpayerIdentifierNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="billTelephone != null">
+        #{billTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="billAccountBank != null">
+        #{billAccountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="billAddress != null">
+        #{billAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveZipCode != null">
+        #{receiveZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveAddress != null">
+        #{receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyTrainInformation != null">
+        #{companyTrainInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAttribute != null">
+        #{companyAttribute,jdbcType=DECIMAL},
+      </if>
+      <if test="companyProperties != null">
+        #{companyProperties,jdbcType=DECIMAL},
+      </if>
+      <if test="parentDepartmentId != null">
+        #{parentDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="changeIsValid != null">
+        #{changeIsValid,jdbcType=DECIMAL},
+      </if>
+      <if test="orgShortName != null">
+        #{orgShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="ileaf != null">
+        #{ileaf,jdbcType=DECIMAL},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="fwdwid != null">
+        #{fwdwid,jdbcType=DECIMAL},
+      </if>
+      <if test="synDataMark != null">
+        #{synDataMark,jdbcType=DECIMAL},
+      </if>
+      <if test="selfZoneId != null">
+        #{selfZoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="shopAddOrg != null">
+        #{shopAddOrg,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db1.domain.SysOrgExample" resultType="java.lang.Long">
+    select count(*) from SYS_ORG
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update SYS_ORG
+    <set>
+      <if test="record.orgId != null">
+        ORG_ID = #{record.orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orgName != null">
+        ORG_NAME = #{record.orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentOrgId != null">
+        PARENT_ORG_ID = #{record.parentOrgId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.unitsLevel != null">
+        UNITS_LEVEL = #{record.unitsLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="record.businessAddress != null">
+        BUSINESS_ADDRESS = #{record.businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.communicationAddress != null">
+        COMMUNICATION_ADDRESS = #{record.communicationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zipCode != null">
+        ZIP_CODE = #{record.zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaCode != null">
+        AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opretor != null">
+        OPRETOR = #{record.opretor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hotline != null">
+        HOTLINE = #{record.hotline,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fax != null">
+        FAX = #{record.fax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.principalTelephone != null">
+        PRINCIPAL_TELEPHONE = #{record.principalTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.principalMobile != null">
+        PRINCIPAL_MOBILE = #{record.principalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.complainTelephone != null">
+        COMPLAIN_TELEPHONE = #{record.complainTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null">
+        URL = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultChargeAmount != null">
+        DEFAULT_CHARGE_AMOUNT = #{record.defaultChargeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.defaultChargeExpiryRule != null">
+        DEFAULT_CHARGE_EXPIRY_RULE = #{record.defaultChargeExpiryRule,jdbcType=DECIMAL},
+      </if>
+      <if test="record.taxId != null">
+        TAX_ID = #{record.taxId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registeredFund != null">
+        REGISTERED_FUND = #{record.registeredFund,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseTypeId != null">
+        ENTERPRISE_TYPE_ID = #{record.enterpriseTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.legalPerson != null">
+        LEGAL_PERSON = #{record.legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headOfUnit != null">
+        HEAD_OF_UNIT = #{record.headOfUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceVehicles != null">
+        SERVICE_VEHICLES = #{record.serviceVehicles,jdbcType=DECIMAL},
+      </if>
+      <if test="record.uidvalidity != null">
+        UIDVALIDITY = #{record.uidvalidity,jdbcType=DECIMAL},
+      </if>
+      <if test="record.zoneId != null">
+        ZONE_ID = #{record.zoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orgTaxDepartmentId != null">
+        ORG_TAX_DEPARTMENT_ID = #{record.orgTaxDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.foundationDate != null">
+        FOUNDATION_DATE = #{record.foundationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.anticounterfeitingDate != null">
+        ANTICOUNTERFEITING_DATE = #{record.anticounterfeitingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creatDate != null">
+        CREAT_DATE = #{record.creatDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fileOfficialSeal != null">
+        FILE_OFFICIAL_SEAL = #{record.fileOfficialSeal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.generalManager != null">
+        GENERAL_MANAGER = #{record.generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assistantGeneralManager != null">
+        ASSISTANT_GENERAL_MANAGER = #{record.assistantGeneralManager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financeManager != null">
+        FINANCE_MANAGER = #{record.financeManager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerServiceManager != null">
+        CUSTOMER_SERVICE_MANAGER = #{record.customerServiceManager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consignee != null">
+        CONSIGNEE = #{record.consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.business != null">
+        BUSINESS = #{record.business,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstOpenBadPrincipal != null">
+        FIRST_OPEN_BAD_PRINCIPAL = #{record.firstOpenBadPrincipal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherContact != null">
+        OTHER_CONTACT = #{record.otherContact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountBank != null">
+        ACCOUNT_BANK = #{record.accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.account != null">
+        ACCOUNT = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxpayerIdentifierNumber != null">
+        TAXPAYER_IDENTIFIER_NUMBER = #{record.taxpayerIdentifierNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billTelephone != null">
+        BILL_TELEPHONE = #{record.billTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billAccountBank != null">
+        BILL_ACCOUNT_BANK = #{record.billAccountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billAddress != null">
+        BILL_ADDRESS = #{record.billAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveZipCode != null">
+        RECEIVE_ZIP_CODE = #{record.receiveZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveAddress != null">
+        RECEIVE_ADDRESS = #{record.receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyTrainInformation != null">
+        COMPANY_TRAIN_INFORMATION = #{record.companyTrainInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyAttribute != null">
+        COMPANY_ATTRIBUTE = #{record.companyAttribute,jdbcType=DECIMAL},
+      </if>
+      <if test="record.companyProperties != null">
+        COMPANY_PROPERTIES = #{record.companyProperties,jdbcType=DECIMAL},
+      </if>
+      <if test="record.parentDepartmentId != null">
+        PARENT_DEPARTMENT_ID = #{record.parentDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.changeIsValid != null">
+        CHANGE_IS_VALID = #{record.changeIsValid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orgShortName != null">
+        ORG_SHORT_NAME = #{record.orgShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ileaf != null">
+        ILEAF = #{record.ileaf,jdbcType=DECIMAL},
+      </if>
+      <if test="record.code != null">
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fwdwid != null">
+        FWDWID = #{record.fwdwid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.synDataMark != null">
+        SYN_DATA_MARK = #{record.synDataMark,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfZoneId != null">
+        SELF_ZONE_ID = #{record.selfZoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shopAddOrg != null">
+        SHOP_ADD_ORG = #{record.shopAddOrg,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update SYS_ORG
+    set ORG_ID = #{record.orgId,jdbcType=DECIMAL},
+      ORG_NAME = #{record.orgName,jdbcType=VARCHAR},
+      PARENT_ORG_ID = #{record.parentOrgId,jdbcType=DECIMAL},
+      UNITS_LEVEL = #{record.unitsLevel,jdbcType=DECIMAL},
+      BUSINESS_ADDRESS = #{record.businessAddress,jdbcType=VARCHAR},
+      COMMUNICATION_ADDRESS = #{record.communicationAddress,jdbcType=VARCHAR},
+      ZIP_CODE = #{record.zipCode,jdbcType=VARCHAR},
+      AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      OPRETOR = #{record.opretor,jdbcType=VARCHAR},
+      HOTLINE = #{record.hotline,jdbcType=VARCHAR},
+      FAX = #{record.fax,jdbcType=VARCHAR},
+      PRINCIPAL_TELEPHONE = #{record.principalTelephone,jdbcType=VARCHAR},
+      PRINCIPAL_MOBILE = #{record.principalMobile,jdbcType=VARCHAR},
+      COMPLAIN_TELEPHONE = #{record.complainTelephone,jdbcType=VARCHAR},
+      URL = #{record.url,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      DEFAULT_CHARGE_AMOUNT = #{record.defaultChargeAmount,jdbcType=DECIMAL},
+      DEFAULT_CHARGE_EXPIRY_RULE = #{record.defaultChargeExpiryRule,jdbcType=DECIMAL},
+      TAX_ID = #{record.taxId,jdbcType=VARCHAR},
+      REGISTERED_FUND = #{record.registeredFund,jdbcType=VARCHAR},
+      ENTERPRISE_TYPE_ID = #{record.enterpriseTypeId,jdbcType=DECIMAL},
+      LEGAL_PERSON = #{record.legalPerson,jdbcType=VARCHAR},
+      HEAD_OF_UNIT = #{record.headOfUnit,jdbcType=VARCHAR},
+      SERVICE_VEHICLES = #{record.serviceVehicles,jdbcType=DECIMAL},
+      UIDVALIDITY = #{record.uidvalidity,jdbcType=DECIMAL},
+      ZONE_ID = #{record.zoneId,jdbcType=DECIMAL},
+      ORG_TAX_DEPARTMENT_ID = #{record.orgTaxDepartmentId,jdbcType=DECIMAL},
+      FOUNDATION_DATE = #{record.foundationDate,jdbcType=TIMESTAMP},
+      ANTICOUNTERFEITING_DATE = #{record.anticounterfeitingDate,jdbcType=TIMESTAMP},
+      CREAT_DATE = #{record.creatDate,jdbcType=TIMESTAMP},
+      FILE_OFFICIAL_SEAL = #{record.fileOfficialSeal,jdbcType=VARCHAR},
+      GENERAL_MANAGER = #{record.generalManager,jdbcType=VARCHAR},
+      ASSISTANT_GENERAL_MANAGER = #{record.assistantGeneralManager,jdbcType=VARCHAR},
+      FINANCE_MANAGER = #{record.financeManager,jdbcType=VARCHAR},
+      CUSTOMER_SERVICE_MANAGER = #{record.customerServiceManager,jdbcType=VARCHAR},
+      CONSIGNEE = #{record.consignee,jdbcType=VARCHAR},
+      BUSINESS = #{record.business,jdbcType=VARCHAR},
+      FIRST_OPEN_BAD_PRINCIPAL = #{record.firstOpenBadPrincipal,jdbcType=VARCHAR},
+      OTHER_CONTACT = #{record.otherContact,jdbcType=VARCHAR},
+      ACCOUNT_BANK = #{record.accountBank,jdbcType=VARCHAR},
+      ACCOUNT = #{record.account,jdbcType=VARCHAR},
+      TAXPAYER_IDENTIFIER_NUMBER = #{record.taxpayerIdentifierNumber,jdbcType=VARCHAR},
+      BILL_TELEPHONE = #{record.billTelephone,jdbcType=VARCHAR},
+      BILL_ACCOUNT_BANK = #{record.billAccountBank,jdbcType=VARCHAR},
+      BILL_ADDRESS = #{record.billAddress,jdbcType=VARCHAR},
+      RECEIVE_ZIP_CODE = #{record.receiveZipCode,jdbcType=VARCHAR},
+      RECEIVE_ADDRESS = #{record.receiveAddress,jdbcType=VARCHAR},
+      COMPANY_TRAIN_INFORMATION = #{record.companyTrainInformation,jdbcType=VARCHAR},
+      COMPANY_ATTRIBUTE = #{record.companyAttribute,jdbcType=DECIMAL},
+      COMPANY_PROPERTIES = #{record.companyProperties,jdbcType=DECIMAL},
+      PARENT_DEPARTMENT_ID = #{record.parentDepartmentId,jdbcType=DECIMAL},
+      CHANGE_IS_VALID = #{record.changeIsValid,jdbcType=DECIMAL},
+      ORG_SHORT_NAME = #{record.orgShortName,jdbcType=VARCHAR},
+      ILEAF = #{record.ileaf,jdbcType=DECIMAL},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      FWDWID = #{record.fwdwid,jdbcType=DECIMAL},
+      SYN_DATA_MARK = #{record.synDataMark,jdbcType=DECIMAL},
+      SELF_ZONE_ID = #{record.selfZoneId,jdbcType=DECIMAL},
+      SHOP_ADD_ORG = #{record.shopAddOrg,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aisino.db1.domain.SysOrg">
+    update SYS_ORG
+    <set>
+      <if test="orgName != null">
+        ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgId != null">
+        PARENT_ORG_ID = #{parentOrgId,jdbcType=DECIMAL},
+      </if>
+      <if test="unitsLevel != null">
+        UNITS_LEVEL = #{unitsLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="businessAddress != null">
+        BUSINESS_ADDRESS = #{businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="communicationAddress != null">
+        COMMUNICATION_ADDRESS = #{communicationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null">
+        ZIP_CODE = #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="opretor != null">
+        OPRETOR = #{opretor,jdbcType=VARCHAR},
+      </if>
+      <if test="hotline != null">
+        HOTLINE = #{hotline,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        FAX = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="principalTelephone != null">
+        PRINCIPAL_TELEPHONE = #{principalTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="principalMobile != null">
+        PRINCIPAL_MOBILE = #{principalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="complainTelephone != null">
+        COMPLAIN_TELEPHONE = #{complainTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultChargeAmount != null">
+        DEFAULT_CHARGE_AMOUNT = #{defaultChargeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultChargeExpiryRule != null">
+        DEFAULT_CHARGE_EXPIRY_RULE = #{defaultChargeExpiryRule,jdbcType=DECIMAL},
+      </if>
+      <if test="taxId != null">
+        TAX_ID = #{taxId,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredFund != null">
+        REGISTERED_FUND = #{registeredFund,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseTypeId != null">
+        ENTERPRISE_TYPE_ID = #{enterpriseTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="legalPerson != null">
+        LEGAL_PERSON = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="headOfUnit != null">
+        HEAD_OF_UNIT = #{headOfUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceVehicles != null">
+        SERVICE_VEHICLES = #{serviceVehicles,jdbcType=DECIMAL},
+      </if>
+      <if test="uidvalidity != null">
+        UIDVALIDITY = #{uidvalidity,jdbcType=DECIMAL},
+      </if>
+      <if test="zoneId != null">
+        ZONE_ID = #{zoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgTaxDepartmentId != null">
+        ORG_TAX_DEPARTMENT_ID = #{orgTaxDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="foundationDate != null">
+        FOUNDATION_DATE = #{foundationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="anticounterfeitingDate != null">
+        ANTICOUNTERFEITING_DATE = #{anticounterfeitingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatDate != null">
+        CREAT_DATE = #{creatDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileOfficialSeal != null">
+        FILE_OFFICIAL_SEAL = #{fileOfficialSeal,jdbcType=VARCHAR},
+      </if>
+      <if test="generalManager != null">
+        GENERAL_MANAGER = #{generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="assistantGeneralManager != null">
+        ASSISTANT_GENERAL_MANAGER = #{assistantGeneralManager,jdbcType=VARCHAR},
+      </if>
+      <if test="financeManager != null">
+        FINANCE_MANAGER = #{financeManager,jdbcType=VARCHAR},
+      </if>
+      <if test="customerServiceManager != null">
+        CUSTOMER_SERVICE_MANAGER = #{customerServiceManager,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null">
+        CONSIGNEE = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="business != null">
+        BUSINESS = #{business,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOpenBadPrincipal != null">
+        FIRST_OPEN_BAD_PRINCIPAL = #{firstOpenBadPrincipal,jdbcType=VARCHAR},
+      </if>
+      <if test="otherContact != null">
+        OTHER_CONTACT = #{otherContact,jdbcType=VARCHAR},
+      </if>
+      <if test="accountBank != null">
+        ACCOUNT_BANK = #{accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        ACCOUNT = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerIdentifierNumber != null">
+        TAXPAYER_IDENTIFIER_NUMBER = #{taxpayerIdentifierNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="billTelephone != null">
+        BILL_TELEPHONE = #{billTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="billAccountBank != null">
+        BILL_ACCOUNT_BANK = #{billAccountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="billAddress != null">
+        BILL_ADDRESS = #{billAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveZipCode != null">
+        RECEIVE_ZIP_CODE = #{receiveZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveAddress != null">
+        RECEIVE_ADDRESS = #{receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyTrainInformation != null">
+        COMPANY_TRAIN_INFORMATION = #{companyTrainInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAttribute != null">
+        COMPANY_ATTRIBUTE = #{companyAttribute,jdbcType=DECIMAL},
+      </if>
+      <if test="companyProperties != null">
+        COMPANY_PROPERTIES = #{companyProperties,jdbcType=DECIMAL},
+      </if>
+      <if test="parentDepartmentId != null">
+        PARENT_DEPARTMENT_ID = #{parentDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="changeIsValid != null">
+        CHANGE_IS_VALID = #{changeIsValid,jdbcType=DECIMAL},
+      </if>
+      <if test="orgShortName != null">
+        ORG_SHORT_NAME = #{orgShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="ileaf != null">
+        ILEAF = #{ileaf,jdbcType=DECIMAL},
+      </if>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="fwdwid != null">
+        FWDWID = #{fwdwid,jdbcType=DECIMAL},
+      </if>
+      <if test="synDataMark != null">
+        SYN_DATA_MARK = #{synDataMark,jdbcType=DECIMAL},
+      </if>
+      <if test="selfZoneId != null">
+        SELF_ZONE_ID = #{selfZoneId,jdbcType=DECIMAL},
+      </if>
+      <if test="shopAddOrg != null">
+        SHOP_ADD_ORG = #{shopAddOrg,jdbcType=CHAR},
+      </if>
+    </set>
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aisino.db1.domain.SysOrg">
+    update SYS_ORG
+    set ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      PARENT_ORG_ID = #{parentOrgId,jdbcType=DECIMAL},
+      UNITS_LEVEL = #{unitsLevel,jdbcType=DECIMAL},
+      BUSINESS_ADDRESS = #{businessAddress,jdbcType=VARCHAR},
+      COMMUNICATION_ADDRESS = #{communicationAddress,jdbcType=VARCHAR},
+      ZIP_CODE = #{zipCode,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      OPRETOR = #{opretor,jdbcType=VARCHAR},
+      HOTLINE = #{hotline,jdbcType=VARCHAR},
+      FAX = #{fax,jdbcType=VARCHAR},
+      PRINCIPAL_TELEPHONE = #{principalTelephone,jdbcType=VARCHAR},
+      PRINCIPAL_MOBILE = #{principalMobile,jdbcType=VARCHAR},
+      COMPLAIN_TELEPHONE = #{complainTelephone,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      DEFAULT_CHARGE_AMOUNT = #{defaultChargeAmount,jdbcType=DECIMAL},
+      DEFAULT_CHARGE_EXPIRY_RULE = #{defaultChargeExpiryRule,jdbcType=DECIMAL},
+      TAX_ID = #{taxId,jdbcType=VARCHAR},
+      REGISTERED_FUND = #{registeredFund,jdbcType=VARCHAR},
+      ENTERPRISE_TYPE_ID = #{enterpriseTypeId,jdbcType=DECIMAL},
+      LEGAL_PERSON = #{legalPerson,jdbcType=VARCHAR},
+      HEAD_OF_UNIT = #{headOfUnit,jdbcType=VARCHAR},
+      SERVICE_VEHICLES = #{serviceVehicles,jdbcType=DECIMAL},
+      UIDVALIDITY = #{uidvalidity,jdbcType=DECIMAL},
+      ZONE_ID = #{zoneId,jdbcType=DECIMAL},
+      ORG_TAX_DEPARTMENT_ID = #{orgTaxDepartmentId,jdbcType=DECIMAL},
+      FOUNDATION_DATE = #{foundationDate,jdbcType=TIMESTAMP},
+      ANTICOUNTERFEITING_DATE = #{anticounterfeitingDate,jdbcType=TIMESTAMP},
+      CREAT_DATE = #{creatDate,jdbcType=TIMESTAMP},
+      FILE_OFFICIAL_SEAL = #{fileOfficialSeal,jdbcType=VARCHAR},
+      GENERAL_MANAGER = #{generalManager,jdbcType=VARCHAR},
+      ASSISTANT_GENERAL_MANAGER = #{assistantGeneralManager,jdbcType=VARCHAR},
+      FINANCE_MANAGER = #{financeManager,jdbcType=VARCHAR},
+      CUSTOMER_SERVICE_MANAGER = #{customerServiceManager,jdbcType=VARCHAR},
+      CONSIGNEE = #{consignee,jdbcType=VARCHAR},
+      BUSINESS = #{business,jdbcType=VARCHAR},
+      FIRST_OPEN_BAD_PRINCIPAL = #{firstOpenBadPrincipal,jdbcType=VARCHAR},
+      OTHER_CONTACT = #{otherContact,jdbcType=VARCHAR},
+      ACCOUNT_BANK = #{accountBank,jdbcType=VARCHAR},
+      ACCOUNT = #{account,jdbcType=VARCHAR},
+      TAXPAYER_IDENTIFIER_NUMBER = #{taxpayerIdentifierNumber,jdbcType=VARCHAR},
+      BILL_TELEPHONE = #{billTelephone,jdbcType=VARCHAR},
+      BILL_ACCOUNT_BANK = #{billAccountBank,jdbcType=VARCHAR},
+      BILL_ADDRESS = #{billAddress,jdbcType=VARCHAR},
+      RECEIVE_ZIP_CODE = #{receiveZipCode,jdbcType=VARCHAR},
+      RECEIVE_ADDRESS = #{receiveAddress,jdbcType=VARCHAR},
+      COMPANY_TRAIN_INFORMATION = #{companyTrainInformation,jdbcType=VARCHAR},
+      COMPANY_ATTRIBUTE = #{companyAttribute,jdbcType=DECIMAL},
+      COMPANY_PROPERTIES = #{companyProperties,jdbcType=DECIMAL},
+      PARENT_DEPARTMENT_ID = #{parentDepartmentId,jdbcType=DECIMAL},
+      CHANGE_IS_VALID = #{changeIsValid,jdbcType=DECIMAL},
+      ORG_SHORT_NAME = #{orgShortName,jdbcType=VARCHAR},
+      ILEAF = #{ileaf,jdbcType=DECIMAL},
+      CODE = #{code,jdbcType=VARCHAR},
+      FWDWID = #{fwdwid,jdbcType=DECIMAL},
+      SYN_DATA_MARK = #{synDataMark,jdbcType=DECIMAL},
+      SELF_ZONE_ID = #{selfZoneId,jdbcType=DECIMAL},
+      SHOP_ADD_ORG = #{shopAddOrg,jdbcType=CHAR}
+    where ORG_ID = #{orgId,jdbcType=DECIMAL}
+  </update>
+
+  <resultMap id="CompanyInfoMap" type="com.aisino.vo.CompanyInfo">
+    <result column="ORG_NAME" jdbcType="VARCHAR" property="orgName" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+  </resultMap>
+
+  <select id="getByTaxCode" parameterType="java.lang.String" resultType="com.aisino.vo.CompanyInfo">
+    SELECT c.CUST_NAME custName,s.org_name orgName FROM CUS_ORG_CUSTOMER c,sys_org s
+    WHERE c.org_id = s.org_id
+    AND c.cust_tax_code = #{code}
+  </select>
+</mapper>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db2.dao.AuthMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db2.domain.Auth">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="PRODUCT_ID" jdbcType="INTEGER" property="productId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="RECHARGE_TIME" jdbcType="TIMESTAMP" property="rechargeTime" />
+    <result column="RECHARGE_ID" jdbcType="INTEGER" property="rechargeId" />
+    <result column="EXPIRATION_TIME" jdbcType="TIMESTAMP" property="expirationTime" />
+    <result column="CUSTOMER_COMPANY_NAME" jdbcType="VARCHAR" property="customerCompanyName" />
+    <result column="COMPANY_NAME" jdbcType="VARCHAR" property="companyName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, CUSTOMER_ID, PRODUCT_ID, CREATE_TIME, RECHARGE_TIME, RECHARGE_ID, EXPIRATION_TIME, 
+    CUSTOMER_COMPANY_NAME, COMPANY_NAME
+  </sql>
+  <select id="selectByExample" parameterType="com.aisino.db2.domain.AuthExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ASP_AUTH_INFO_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.aisino.db2.domain.AuthExample">
+    delete from ASP_AUTH_INFO_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db2.domain.Auth">
+    insert into ASP_AUTH_INFO_TAB (ID, CUSTOMER_ID, PRODUCT_ID, 
+      CREATE_TIME, RECHARGE_TIME, RECHARGE_ID, 
+      EXPIRATION_TIME, CUSTOMER_COMPANY_NAME, 
+      COMPANY_NAME)
+    values (#{id,jdbcType=INTEGER}, #{customerId,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{rechargeTime,jdbcType=TIMESTAMP}, #{rechargeId,jdbcType=INTEGER}, 
+      #{expirationTime,jdbcType=TIMESTAMP}, #{customerCompanyName,jdbcType=VARCHAR}, 
+      #{companyName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db2.domain.Auth">
+    insert into ASP_AUTH_INFO_TAB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="customerId != null">
+        CUSTOMER_ID,
+      </if>
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="rechargeTime != null">
+        RECHARGE_TIME,
+      </if>
+      <if test="rechargeId != null">
+        RECHARGE_ID,
+      </if>
+      <if test="expirationTime != null">
+        EXPIRATION_TIME,
+      </if>
+      <if test="customerCompanyName != null">
+        CUSTOMER_COMPANY_NAME,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rechargeTime != null">
+        #{rechargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rechargeId != null">
+        #{rechargeId,jdbcType=INTEGER},
+      </if>
+      <if test="expirationTime != null">
+        #{expirationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerCompanyName != null">
+        #{customerCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db2.domain.AuthExample" resultType="java.lang.Long">
+    select count(*) from ASP_AUTH_INFO_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ASP_AUTH_INFO_TAB
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerId != null">
+        CUSTOMER_ID = #{record.customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null">
+        PRODUCT_ID = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rechargeTime != null">
+        RECHARGE_TIME = #{record.rechargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rechargeId != null">
+        RECHARGE_ID = #{record.rechargeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.expirationTime != null">
+        EXPIRATION_TIME = #{record.expirationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.customerCompanyName != null">
+        CUSTOMER_COMPANY_NAME = #{record.customerCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyName != null">
+        COMPANY_NAME = #{record.companyName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ASP_AUTH_INFO_TAB
+    set ID = #{record.id,jdbcType=INTEGER},
+      CUSTOMER_ID = #{record.customerId,jdbcType=VARCHAR},
+      PRODUCT_ID = #{record.productId,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      RECHARGE_TIME = #{record.rechargeTime,jdbcType=TIMESTAMP},
+      RECHARGE_ID = #{record.rechargeId,jdbcType=INTEGER},
+      EXPIRATION_TIME = #{record.expirationTime,jdbcType=TIMESTAMP},
+      CUSTOMER_COMPANY_NAME = #{record.customerCompanyName,jdbcType=VARCHAR},
+      COMPANY_NAME = #{record.companyName,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <!--ProductCompanyResult getSelectResult();-->
+  <select id="getSelectResult" resultType="com.aisino.vo.ProductCompanyResult" parameterType="java.lang.String">
+      SELECT
+			 P.[PRODUCT_NAME] productName,
+			 A.[COMPANY_NAME] companyName,
+			 count(1) count
+		FROM ASP_AUTH_INFO_TAB A
+		INNER JOIN ASP_PRODUCT_INFO_TAB P
+		ON A.PRODUCT_ID = P.PRODUCT_ID
+		WHERE
+		A.CUSTOMER_ID NOT LIKE '%999999%'
+		AND A.CUSTOMER_ID NOT LIKE '%912101007600936848%'
+		AND
+		cast(A.[EXPIRATION_TIME] as datetime) >= GetDate()
+		AND A.[COMPANY_NAME] IS NOT NULL
+        <if test='str == "1"'>
+         AND A.[RECHARGE_ID] is NOT NULL
+        </if>
+        <if test='str == "0"'>
+         AND A.[RECHARGE_ID] IS NULL
+        </if>
+		GROUP BY P.[PRODUCT_NAME],A.[COMPANY_NAME]
+		ORDER BY A.[COMPANY_NAME] DESC
+  </select>
+</mapper>

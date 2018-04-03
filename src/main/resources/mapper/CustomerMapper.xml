@@ -1,0 +1,2238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db1.dao.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db1.domain.Customer">
+    <id column="ORG_CUSTOMER_ID" jdbcType="DECIMAL" property="orgCustomerId" />
+    <result column="CUST_CLASS_ID" jdbcType="DECIMAL" property="custClassId" />
+    <result column="CUST_TAX_CODE" jdbcType="VARCHAR" property="custTaxCode" />
+    <result column="TAX_BUREAU_ID" jdbcType="DECIMAL" property="taxBureauId" />
+    <result column="SUBSTATION_ID" jdbcType="DECIMAL" property="substationId" />
+    <result column="SERVICE_PERSONAL_ID" jdbcType="DECIMAL" property="servicePersonalId" />
+    <result column="ORG_ID" jdbcType="DECIMAL" property="orgId" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="NOTES" jdbcType="VARCHAR" property="notes" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="REGION_ID" jdbcType="DECIMAL" property="regionId" />
+    <result column="ENTERPRISE_TYPE_ID" jdbcType="DECIMAL" property="enterpriseTypeId" />
+    <result column="VOCATION_ID" jdbcType="DECIMAL" property="vocationId" />
+    <result column="BUSINESS_SCOPE" jdbcType="VARCHAR" property="businessScope" />
+    <result column="ACCOUNT_BANK" jdbcType="VARCHAR" property="accountBank" />
+    <result column="BANK_ACCOUNT" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="LEGAL_PERSON" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="REGISTER_DATE" jdbcType="TIMESTAMP" property="registerDate" />
+    <result column="IS_MISSING" jdbcType="DECIMAL" property="isMissing" />
+    <result column="IS_VALID" jdbcType="DECIMAL" property="isValid" />
+    <result column="CREATER_ID" jdbcType="DECIMAL" property="createrId" />
+    <result column="UPDATE_OPERATOR_ID" jdbcType="DECIMAL" property="updateOperatorId" />
+    <result column="SHORTCUT" jdbcType="VARCHAR" property="shortcut" />
+    <result column="CUSTOMER_ID" jdbcType="DECIMAL" property="customerId" />
+    <result column="SUB_SECURITY_BUREAU_ID" jdbcType="DECIMAL" property="subSecurityBureauId" />
+    <result column="STAR_LEVEL_ID" jdbcType="VARCHAR" property="starLevelId" />
+    <result column="CUST_LEVEL_ID" jdbcType="VARCHAR" property="custLevelId" />
+    <result column="REGISTERED_FUND" jdbcType="DECIMAL" property="registeredFund" />
+    <result column="PERSON_COUNT" jdbcType="DECIMAL" property="personCount" />
+    <result column="ACCOUNTANT_COUNT" jdbcType="DECIMAL" property="accountantCount" />
+    <result column="CUST_SCALE_ID" jdbcType="VARCHAR" property="custScaleId" />
+    <result column="COMPUTER_COUNT" jdbcType="DECIMAL" property="computerCount" />
+    <result column="NETWORK_TYPE_ID" jdbcType="VARCHAR" property="networkTypeId" />
+    <result column="CREDIT_LEVEL_ID" jdbcType="VARCHAR" property="creditLevelId" />
+    <result column="CREDIT_LIMIT" jdbcType="DECIMAL" property="creditLimit" />
+    <result column="CUST_CODE" jdbcType="VARCHAR" property="custCode" />
+    <result column="GENERAL_MANAGER" jdbcType="VARCHAR" property="generalManager" />
+    <result column="LOCATION_TYPE_ID" jdbcType="VARCHAR" property="locationTypeId" />
+    <result column="TRAINING_COUNT" jdbcType="DECIMAL" property="trainingCount" />
+    <result column="SECURITY_PERSON_COUNT" jdbcType="DECIMAL" property="securityPersonCount" />
+    <result column="ROOM_COUNT" jdbcType="DECIMAL" property="roomCount" />
+    <result column="PARENT_ORG_CUSTOMER_ID" jdbcType="DECIMAL" property="parentOrgCustomerId" />
+    <result column="VOCATION_FORCE_ID" jdbcType="VARCHAR" property="vocationForceId" />
+    <result column="TEL1" jdbcType="VARCHAR" property="tel1" />
+    <result column="TEL2" jdbcType="VARCHAR" property="tel2" />
+    <result column="TEL3" jdbcType="VARCHAR" property="tel3" />
+    <result column="FAX" jdbcType="VARCHAR" property="fax" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="SECURITY_TEL" jdbcType="VARCHAR" property="securityTel" />
+    <result column="BED_COUNT" jdbcType="DECIMAL" property="bedCount" />
+    <result column="SECURITY_PERSON" jdbcType="VARCHAR" property="securityPerson" />
+    <result column="REMARK_INFO" jdbcType="VARCHAR" property="remarkInfo" />
+    <result column="MANAGER_ORG" jdbcType="VARCHAR" property="managerOrg" />
+    <result column="POLICE_STATION" jdbcType="VARCHAR" property="policeStation" />
+    <result column="SUB_COUNTY_CODE" jdbcType="VARCHAR" property="subCountyCode" />
+    <result column="SUB_SECURITY_BUREAU" jdbcType="VARCHAR" property="subSecurityBureau" />
+    <result column="REGISTER_PERSON" jdbcType="VARCHAR" property="registerPerson" />
+    <result column="OWN_CUSTOMER_ID" jdbcType="VARCHAR" property="ownCustomerId" />
+    <result column="CREATE_FROM" jdbcType="DECIMAL" property="createFrom" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="COLLECTION_BANK" jdbcType="VARCHAR" property="collectionBank" />
+    <result column="COLLECTION_ACCOUNT" jdbcType="VARCHAR" property="collectionAccount" />
+    <result column="SERVICE_DEPARTMENT_ID" jdbcType="DECIMAL" property="serviceDepartmentId" />
+    <result column="CUST_LEVEL" jdbcType="DECIMAL" property="custLevel" />
+    <result column="LOCAL_TAX_AUTHORITY_ID" jdbcType="DECIMAL" property="localTaxAuthorityId" />
+    <result column="ENTERPRISE_SCALE" jdbcType="DECIMAL" property="enterpriseScale" />
+    <result column="IS_WITH_BRANCHES" jdbcType="DECIMAL" property="isWithBranches" />
+    <result column="CUST_NAME_PINYIN" jdbcType="VARCHAR" property="custNamePinyin" />
+    <result column="SOURCE_BUSINESS_TYPE_ID" jdbcType="DECIMAL" property="sourceBusinessTypeId" />
+    <result column="POLICE_ID" jdbcType="DECIMAL" property="policeId" />
+    <result column="SYN_DATA_MARK" jdbcType="DECIMAL" property="synDataMark" />
+    <result column="IS_BANK_COLLECTION" jdbcType="DECIMAL" property="isBankCollection" />
+    <result column="BANK_CODE" jdbcType="VARCHAR" property="bankCode" />
+    <result column="BANK_COLLECTION_AGREEMENT_ID" jdbcType="VARCHAR" property="bankCollectionAgreementId" />
+    <result column="BANK_COLLECTION_AGREEMENT_DATE" jdbcType="TIMESTAMP" property="bankCollectionAgreementDate" />
+    <result column="IMPORT_NO" jdbcType="VARCHAR" property="importNo" />
+    <result column="VPN_NO" jdbcType="VARCHAR" property="vpnNo" />
+    <result column="VPN_PASS" jdbcType="VARCHAR" property="vpnPass" />
+    <result column="CHILD_POLICE_ID" jdbcType="DECIMAL" property="childPoliceId" />
+    <result column="SELF_SEL_VALUE" jdbcType="VARCHAR" property="selfSelValue" />
+    <result column="USER_DEFINE01" jdbcType="VARCHAR" property="userDefine01" />
+    <result column="USER_DEFINE02" jdbcType="VARCHAR" property="userDefine02" />
+    <result column="USER_DEFINE03" jdbcType="VARCHAR" property="userDefine03" />
+    <result column="USER_DEFINE04" jdbcType="VARCHAR" property="userDefine04" />
+    <result column="USER_DEFINE05" jdbcType="VARCHAR" property="userDefine05" />
+    <result column="USER_DEFINE06" jdbcType="VARCHAR" property="userDefine06" />
+    <result column="USER_DEFINE07" jdbcType="VARCHAR" property="userDefine07" />
+    <result column="USER_DEFINE08" jdbcType="VARCHAR" property="userDefine08" />
+    <result column="USER_DEFINE09" jdbcType="VARCHAR" property="userDefine09" />
+    <result column="USER_DEFINE10" jdbcType="VARCHAR" property="userDefine10" />
+    <result column="USER_DEFINE11" jdbcType="VARCHAR" property="userDefine11" />
+    <result column="USER_DEFINE12" jdbcType="VARCHAR" property="userDefine12" />
+    <result column="USER_DEFINE13" jdbcType="VARCHAR" property="userDefine13" />
+    <result column="USER_DEFINE14" jdbcType="VARCHAR" property="userDefine14" />
+    <result column="USER_DEFINE15" jdbcType="VARCHAR" property="userDefine15" />
+    <result column="USER_DEFINE16" jdbcType="VARCHAR" property="userDefine16" />
+    <result column="IS_DKH" jdbcType="VARCHAR" property="isDkh" />
+    <result column="USER_DEFINE18" jdbcType="VARCHAR" property="userDefine18" />
+    <result column="USER_DEFINE19" jdbcType="VARCHAR" property="userDefine19" />
+    <result column="USER_DEFINE20" jdbcType="VARCHAR" property="userDefine20" />
+    <result column="TAX_RATE" jdbcType="VARCHAR" property="taxRate" />
+    <result column="MER_CODE" jdbcType="VARCHAR" property="merCode" />
+    <result column="MER_DEVPROPERTY" jdbcType="DECIMAL" property="merDevproperty" />
+    <result column="MER_TRANSACTION" jdbcType="VARCHAR" property="merTransaction" />
+    <result column="MER_BUS_TIME" jdbcType="VARCHAR" property="merBusTime" />
+    <result column="MER_SINGLE" jdbcType="VARCHAR" property="merSingle" />
+    <result column="MER_COMMU" jdbcType="VARCHAR" property="merCommu" />
+    <result column="SHOP_KEYID" jdbcType="VARCHAR" property="shopKeyid" />
+    <result column="SHOP_OR_RE" jdbcType="CHAR" property="shopOrRe" />
+    <result column="SELF_HY" jdbcType="DECIMAL" property="selfHy" />
+    <result column="SELF_EHY" jdbcType="DECIMAL" property="selfEhy" />
+    <result column="SELF_SHY" jdbcType="DECIMAL" property="selfShy" />
+    <result column="SELF_IS_MOVEOUT" jdbcType="DECIMAL" property="selfIsMoveout" />
+    <result column="SELF_IS_INSTALL" jdbcType="DECIMAL" property="selfIsInstall" />
+    <result column="SELF_CONTRACTNO" jdbcType="VARCHAR" property="selfContractno" />
+    <result column="SELF_CAMPINC" jdbcType="DECIMAL" property="selfCampinc" />
+    <result column="LOGOUT_NOTE" jdbcType="DECIMAL" property="logoutNote" />
+    <result column="BACKUP_TAX_CODE" jdbcType="VARCHAR" property="backupTaxCode" />
+    <result column="ORG_MER_ID" jdbcType="VARCHAR" property="orgMerId" />
+    <result column="SELF_JNI" jdbcType="DECIMAL" property="selfJni" />
+    <result column="SELF_FWUQ" jdbcType="DECIMAL" property="selfFwuq" />
+    <result column="PARTA_AFFILIATION_CODE" jdbcType="DECIMAL" property="partaAffiliationCode" />
+    <result column="RELATED_PARTY_CODE" jdbcType="VARCHAR" property="relatedPartyCode" />
+    <result column="AUDIT_SIGN" jdbcType="DECIMAL" property="auditSign" />
+    <result column="SELF_ISVIP" jdbcType="DECIMAL" property="selfIsvip" />
+    <result column="RESOURCE_CODE" jdbcType="DECIMAL" property="resourceCode" />
+    <result column="USER_DEFINE17" jdbcType="VARCHAR" property="userDefine17" />
+    <result column="INVOICE_NAME" jdbcType="VARCHAR" property="invoiceName" />
+    <result column="INVOICE_TEL" jdbcType="VARCHAR" property="invoiceTel" />
+    <result column="INVOICE_ADDR" jdbcType="VARCHAR" property="invoiceAddr" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ORG_CUSTOMER_ID, CUST_CLASS_ID, CUST_TAX_CODE, TAX_BUREAU_ID, SUBSTATION_ID, SERVICE_PERSONAL_ID, 
+    ORG_ID, CREATE_DATE, NOTES, UPDATE_DATE, CUST_NAME, URL, EMAIL, REGION_ID, ENTERPRISE_TYPE_ID, 
+    VOCATION_ID, BUSINESS_SCOPE, ACCOUNT_BANK, BANK_ACCOUNT, LEGAL_PERSON, REGISTER_DATE, 
+    IS_MISSING, IS_VALID, CREATER_ID, UPDATE_OPERATOR_ID, SHORTCUT, CUSTOMER_ID, SUB_SECURITY_BUREAU_ID, 
+    STAR_LEVEL_ID, CUST_LEVEL_ID, REGISTERED_FUND, PERSON_COUNT, ACCOUNTANT_COUNT, CUST_SCALE_ID, 
+    COMPUTER_COUNT, NETWORK_TYPE_ID, CREDIT_LEVEL_ID, CREDIT_LIMIT, CUST_CODE, GENERAL_MANAGER, 
+    LOCATION_TYPE_ID, TRAINING_COUNT, SECURITY_PERSON_COUNT, ROOM_COUNT, PARENT_ORG_CUSTOMER_ID, 
+    VOCATION_FORCE_ID, TEL1, TEL2, TEL3, FAX, MOBILE, SECURITY_TEL, BED_COUNT, SECURITY_PERSON, 
+    REMARK_INFO, MANAGER_ORG, POLICE_STATION, SUB_COUNTY_CODE, SUB_SECURITY_BUREAU, REGISTER_PERSON, 
+    OWN_CUSTOMER_ID, CREATE_FROM, STATE, COLLECTION_BANK, COLLECTION_ACCOUNT, SERVICE_DEPARTMENT_ID, 
+    CUST_LEVEL, LOCAL_TAX_AUTHORITY_ID, ENTERPRISE_SCALE, IS_WITH_BRANCHES, CUST_NAME_PINYIN, 
+    SOURCE_BUSINESS_TYPE_ID, POLICE_ID, SYN_DATA_MARK, IS_BANK_COLLECTION, BANK_CODE, 
+    BANK_COLLECTION_AGREEMENT_ID, BANK_COLLECTION_AGREEMENT_DATE, IMPORT_NO, VPN_NO, 
+    VPN_PASS, CHILD_POLICE_ID, SELF_SEL_VALUE, USER_DEFINE01, USER_DEFINE02, USER_DEFINE03, 
+    USER_DEFINE04, USER_DEFINE05, USER_DEFINE06, USER_DEFINE07, USER_DEFINE08, USER_DEFINE09, 
+    USER_DEFINE10, USER_DEFINE11, USER_DEFINE12, USER_DEFINE13, USER_DEFINE14, USER_DEFINE15, 
+    USER_DEFINE16, IS_DKH, USER_DEFINE18, USER_DEFINE19, USER_DEFINE20, TAX_RATE, MER_CODE, 
+    MER_DEVPROPERTY, MER_TRANSACTION, MER_BUS_TIME, MER_SINGLE, MER_COMMU, SHOP_KEYID, 
+    SHOP_OR_RE, SELF_HY, SELF_EHY, SELF_SHY, SELF_IS_MOVEOUT, SELF_IS_INSTALL, SELF_CONTRACTNO, 
+    SELF_CAMPINC, LOGOUT_NOTE, BACKUP_TAX_CODE, ORG_MER_ID, SELF_JNI, SELF_FWUQ, PARTA_AFFILIATION_CODE, 
+    RELATED_PARTY_CODE, AUDIT_SIGN, SELF_ISVIP, RESOURCE_CODE, USER_DEFINE17, INVOICE_NAME, 
+    INVOICE_TEL, INVOICE_ADDR
+  </sql>
+  <select id="selectByExample" parameterType="com.aisino.db1.domain.CustomerExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CUS_ORG_CUSTOMER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CUS_ORG_CUSTOMER
+    where ORG_CUSTOMER_ID = #{orgCustomerId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CUS_ORG_CUSTOMER
+    where ORG_CUSTOMER_ID = #{orgCustomerId,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.aisino.db1.domain.CustomerExample">
+    delete from CUS_ORG_CUSTOMER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db1.domain.Customer">
+    insert into CUS_ORG_CUSTOMER (ORG_CUSTOMER_ID, CUST_CLASS_ID, CUST_TAX_CODE, 
+      TAX_BUREAU_ID, SUBSTATION_ID, SERVICE_PERSONAL_ID, 
+      ORG_ID, CREATE_DATE, NOTES, 
+      UPDATE_DATE, CUST_NAME, URL, 
+      EMAIL, REGION_ID, ENTERPRISE_TYPE_ID, 
+      VOCATION_ID, BUSINESS_SCOPE, ACCOUNT_BANK, 
+      BANK_ACCOUNT, LEGAL_PERSON, REGISTER_DATE, 
+      IS_MISSING, IS_VALID, CREATER_ID, 
+      UPDATE_OPERATOR_ID, SHORTCUT, CUSTOMER_ID, 
+      SUB_SECURITY_BUREAU_ID, STAR_LEVEL_ID, CUST_LEVEL_ID, 
+      REGISTERED_FUND, PERSON_COUNT, ACCOUNTANT_COUNT, 
+      CUST_SCALE_ID, COMPUTER_COUNT, NETWORK_TYPE_ID, 
+      CREDIT_LEVEL_ID, CREDIT_LIMIT, CUST_CODE, 
+      GENERAL_MANAGER, LOCATION_TYPE_ID, TRAINING_COUNT, 
+      SECURITY_PERSON_COUNT, ROOM_COUNT, PARENT_ORG_CUSTOMER_ID, 
+      VOCATION_FORCE_ID, TEL1, TEL2, 
+      TEL3, FAX, MOBILE, 
+      SECURITY_TEL, BED_COUNT, SECURITY_PERSON, 
+      REMARK_INFO, MANAGER_ORG, POLICE_STATION, 
+      SUB_COUNTY_CODE, SUB_SECURITY_BUREAU, REGISTER_PERSON, 
+      OWN_CUSTOMER_ID, CREATE_FROM, STATE, 
+      COLLECTION_BANK, COLLECTION_ACCOUNT, SERVICE_DEPARTMENT_ID, 
+      CUST_LEVEL, LOCAL_TAX_AUTHORITY_ID, ENTERPRISE_SCALE, 
+      IS_WITH_BRANCHES, CUST_NAME_PINYIN, SOURCE_BUSINESS_TYPE_ID, 
+      POLICE_ID, SYN_DATA_MARK, IS_BANK_COLLECTION, 
+      BANK_CODE, BANK_COLLECTION_AGREEMENT_ID, BANK_COLLECTION_AGREEMENT_DATE, 
+      IMPORT_NO, VPN_NO, VPN_PASS, 
+      CHILD_POLICE_ID, SELF_SEL_VALUE, USER_DEFINE01, 
+      USER_DEFINE02, USER_DEFINE03, USER_DEFINE04, 
+      USER_DEFINE05, USER_DEFINE06, USER_DEFINE07, 
+      USER_DEFINE08, USER_DEFINE09, USER_DEFINE10, 
+      USER_DEFINE11, USER_DEFINE12, USER_DEFINE13, 
+      USER_DEFINE14, USER_DEFINE15, USER_DEFINE16, 
+      IS_DKH, USER_DEFINE18, USER_DEFINE19, 
+      USER_DEFINE20, TAX_RATE, MER_CODE, 
+      MER_DEVPROPERTY, MER_TRANSACTION, MER_BUS_TIME, 
+      MER_SINGLE, MER_COMMU, SHOP_KEYID, 
+      SHOP_OR_RE, SELF_HY, SELF_EHY, 
+      SELF_SHY, SELF_IS_MOVEOUT, SELF_IS_INSTALL, 
+      SELF_CONTRACTNO, SELF_CAMPINC, LOGOUT_NOTE, 
+      BACKUP_TAX_CODE, ORG_MER_ID, SELF_JNI, 
+      SELF_FWUQ, PARTA_AFFILIATION_CODE, RELATED_PARTY_CODE, 
+      AUDIT_SIGN, SELF_ISVIP, RESOURCE_CODE, 
+      USER_DEFINE17, INVOICE_NAME, INVOICE_TEL, 
+      INVOICE_ADDR)
+    values (#{orgCustomerId,jdbcType=DECIMAL}, #{custClassId,jdbcType=DECIMAL}, #{custTaxCode,jdbcType=VARCHAR}, 
+      #{taxBureauId,jdbcType=DECIMAL}, #{substationId,jdbcType=DECIMAL}, #{servicePersonalId,jdbcType=DECIMAL}, 
+      #{orgId,jdbcType=DECIMAL}, #{createDate,jdbcType=TIMESTAMP}, #{notes,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{custName,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{regionId,jdbcType=DECIMAL}, #{enterpriseTypeId,jdbcType=DECIMAL}, 
+      #{vocationId,jdbcType=DECIMAL}, #{businessScope,jdbcType=VARCHAR}, #{accountBank,jdbcType=VARCHAR}, 
+      #{bankAccount,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR}, #{registerDate,jdbcType=TIMESTAMP}, 
+      #{isMissing,jdbcType=DECIMAL}, #{isValid,jdbcType=DECIMAL}, #{createrId,jdbcType=DECIMAL}, 
+      #{updateOperatorId,jdbcType=DECIMAL}, #{shortcut,jdbcType=VARCHAR}, #{customerId,jdbcType=DECIMAL}, 
+      #{subSecurityBureauId,jdbcType=DECIMAL}, #{starLevelId,jdbcType=VARCHAR}, #{custLevelId,jdbcType=VARCHAR}, 
+      #{registeredFund,jdbcType=DECIMAL}, #{personCount,jdbcType=DECIMAL}, #{accountantCount,jdbcType=DECIMAL}, 
+      #{custScaleId,jdbcType=VARCHAR}, #{computerCount,jdbcType=DECIMAL}, #{networkTypeId,jdbcType=VARCHAR}, 
+      #{creditLevelId,jdbcType=VARCHAR}, #{creditLimit,jdbcType=DECIMAL}, #{custCode,jdbcType=VARCHAR}, 
+      #{generalManager,jdbcType=VARCHAR}, #{locationTypeId,jdbcType=VARCHAR}, #{trainingCount,jdbcType=DECIMAL}, 
+      #{securityPersonCount,jdbcType=DECIMAL}, #{roomCount,jdbcType=DECIMAL}, #{parentOrgCustomerId,jdbcType=DECIMAL}, 
+      #{vocationForceId,jdbcType=VARCHAR}, #{tel1,jdbcType=VARCHAR}, #{tel2,jdbcType=VARCHAR}, 
+      #{tel3,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{securityTel,jdbcType=VARCHAR}, #{bedCount,jdbcType=DECIMAL}, #{securityPerson,jdbcType=VARCHAR}, 
+      #{remarkInfo,jdbcType=VARCHAR}, #{managerOrg,jdbcType=VARCHAR}, #{policeStation,jdbcType=VARCHAR}, 
+      #{subCountyCode,jdbcType=VARCHAR}, #{subSecurityBureau,jdbcType=VARCHAR}, #{registerPerson,jdbcType=VARCHAR}, 
+      #{ownCustomerId,jdbcType=VARCHAR}, #{createFrom,jdbcType=DECIMAL}, #{state,jdbcType=DECIMAL}, 
+      #{collectionBank,jdbcType=VARCHAR}, #{collectionAccount,jdbcType=VARCHAR}, #{serviceDepartmentId,jdbcType=DECIMAL}, 
+      #{custLevel,jdbcType=DECIMAL}, #{localTaxAuthorityId,jdbcType=DECIMAL}, #{enterpriseScale,jdbcType=DECIMAL}, 
+      #{isWithBranches,jdbcType=DECIMAL}, #{custNamePinyin,jdbcType=VARCHAR}, #{sourceBusinessTypeId,jdbcType=DECIMAL}, 
+      #{policeId,jdbcType=DECIMAL}, #{synDataMark,jdbcType=DECIMAL}, #{isBankCollection,jdbcType=DECIMAL}, 
+      #{bankCode,jdbcType=VARCHAR}, #{bankCollectionAgreementId,jdbcType=VARCHAR}, #{bankCollectionAgreementDate,jdbcType=TIMESTAMP}, 
+      #{importNo,jdbcType=VARCHAR}, #{vpnNo,jdbcType=VARCHAR}, #{vpnPass,jdbcType=VARCHAR}, 
+      #{childPoliceId,jdbcType=DECIMAL}, #{selfSelValue,jdbcType=VARCHAR}, #{userDefine01,jdbcType=VARCHAR}, 
+      #{userDefine02,jdbcType=VARCHAR}, #{userDefine03,jdbcType=VARCHAR}, #{userDefine04,jdbcType=VARCHAR}, 
+      #{userDefine05,jdbcType=VARCHAR}, #{userDefine06,jdbcType=VARCHAR}, #{userDefine07,jdbcType=VARCHAR}, 
+      #{userDefine08,jdbcType=VARCHAR}, #{userDefine09,jdbcType=VARCHAR}, #{userDefine10,jdbcType=VARCHAR}, 
+      #{userDefine11,jdbcType=VARCHAR}, #{userDefine12,jdbcType=VARCHAR}, #{userDefine13,jdbcType=VARCHAR}, 
+      #{userDefine14,jdbcType=VARCHAR}, #{userDefine15,jdbcType=VARCHAR}, #{userDefine16,jdbcType=VARCHAR}, 
+      #{isDkh,jdbcType=VARCHAR}, #{userDefine18,jdbcType=VARCHAR}, #{userDefine19,jdbcType=VARCHAR}, 
+      #{userDefine20,jdbcType=VARCHAR}, #{taxRate,jdbcType=VARCHAR}, #{merCode,jdbcType=VARCHAR}, 
+      #{merDevproperty,jdbcType=DECIMAL}, #{merTransaction,jdbcType=VARCHAR}, #{merBusTime,jdbcType=VARCHAR}, 
+      #{merSingle,jdbcType=VARCHAR}, #{merCommu,jdbcType=VARCHAR}, #{shopKeyid,jdbcType=VARCHAR}, 
+      #{shopOrRe,jdbcType=CHAR}, #{selfHy,jdbcType=DECIMAL}, #{selfEhy,jdbcType=DECIMAL}, 
+      #{selfShy,jdbcType=DECIMAL}, #{selfIsMoveout,jdbcType=DECIMAL}, #{selfIsInstall,jdbcType=DECIMAL}, 
+      #{selfContractno,jdbcType=VARCHAR}, #{selfCampinc,jdbcType=DECIMAL}, #{logoutNote,jdbcType=DECIMAL}, 
+      #{backupTaxCode,jdbcType=VARCHAR}, #{orgMerId,jdbcType=VARCHAR}, #{selfJni,jdbcType=DECIMAL}, 
+      #{selfFwuq,jdbcType=DECIMAL}, #{partaAffiliationCode,jdbcType=DECIMAL}, #{relatedPartyCode,jdbcType=VARCHAR}, 
+      #{auditSign,jdbcType=DECIMAL}, #{selfIsvip,jdbcType=DECIMAL}, #{resourceCode,jdbcType=DECIMAL}, 
+      #{userDefine17,jdbcType=VARCHAR}, #{invoiceName,jdbcType=VARCHAR}, #{invoiceTel,jdbcType=VARCHAR}, 
+      #{invoiceAddr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db1.domain.Customer">
+    insert into CUS_ORG_CUSTOMER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orgCustomerId != null">
+        ORG_CUSTOMER_ID,
+      </if>
+      <if test="custClassId != null">
+        CUST_CLASS_ID,
+      </if>
+      <if test="custTaxCode != null">
+        CUST_TAX_CODE,
+      </if>
+      <if test="taxBureauId != null">
+        TAX_BUREAU_ID,
+      </if>
+      <if test="substationId != null">
+        SUBSTATION_ID,
+      </if>
+      <if test="servicePersonalId != null">
+        SERVICE_PERSONAL_ID,
+      </if>
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="notes != null">
+        NOTES,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="regionId != null">
+        REGION_ID,
+      </if>
+      <if test="enterpriseTypeId != null">
+        ENTERPRISE_TYPE_ID,
+      </if>
+      <if test="vocationId != null">
+        VOCATION_ID,
+      </if>
+      <if test="businessScope != null">
+        BUSINESS_SCOPE,
+      </if>
+      <if test="accountBank != null">
+        ACCOUNT_BANK,
+      </if>
+      <if test="bankAccount != null">
+        BANK_ACCOUNT,
+      </if>
+      <if test="legalPerson != null">
+        LEGAL_PERSON,
+      </if>
+      <if test="registerDate != null">
+        REGISTER_DATE,
+      </if>
+      <if test="isMissing != null">
+        IS_MISSING,
+      </if>
+      <if test="isValid != null">
+        IS_VALID,
+      </if>
+      <if test="createrId != null">
+        CREATER_ID,
+      </if>
+      <if test="updateOperatorId != null">
+        UPDATE_OPERATOR_ID,
+      </if>
+      <if test="shortcut != null">
+        SHORTCUT,
+      </if>
+      <if test="customerId != null">
+        CUSTOMER_ID,
+      </if>
+      <if test="subSecurityBureauId != null">
+        SUB_SECURITY_BUREAU_ID,
+      </if>
+      <if test="starLevelId != null">
+        STAR_LEVEL_ID,
+      </if>
+      <if test="custLevelId != null">
+        CUST_LEVEL_ID,
+      </if>
+      <if test="registeredFund != null">
+        REGISTERED_FUND,
+      </if>
+      <if test="personCount != null">
+        PERSON_COUNT,
+      </if>
+      <if test="accountantCount != null">
+        ACCOUNTANT_COUNT,
+      </if>
+      <if test="custScaleId != null">
+        CUST_SCALE_ID,
+      </if>
+      <if test="computerCount != null">
+        COMPUTER_COUNT,
+      </if>
+      <if test="networkTypeId != null">
+        NETWORK_TYPE_ID,
+      </if>
+      <if test="creditLevelId != null">
+        CREDIT_LEVEL_ID,
+      </if>
+      <if test="creditLimit != null">
+        CREDIT_LIMIT,
+      </if>
+      <if test="custCode != null">
+        CUST_CODE,
+      </if>
+      <if test="generalManager != null">
+        GENERAL_MANAGER,
+      </if>
+      <if test="locationTypeId != null">
+        LOCATION_TYPE_ID,
+      </if>
+      <if test="trainingCount != null">
+        TRAINING_COUNT,
+      </if>
+      <if test="securityPersonCount != null">
+        SECURITY_PERSON_COUNT,
+      </if>
+      <if test="roomCount != null">
+        ROOM_COUNT,
+      </if>
+      <if test="parentOrgCustomerId != null">
+        PARENT_ORG_CUSTOMER_ID,
+      </if>
+      <if test="vocationForceId != null">
+        VOCATION_FORCE_ID,
+      </if>
+      <if test="tel1 != null">
+        TEL1,
+      </if>
+      <if test="tel2 != null">
+        TEL2,
+      </if>
+      <if test="tel3 != null">
+        TEL3,
+      </if>
+      <if test="fax != null">
+        FAX,
+      </if>
+      <if test="mobile != null">
+        MOBILE,
+      </if>
+      <if test="securityTel != null">
+        SECURITY_TEL,
+      </if>
+      <if test="bedCount != null">
+        BED_COUNT,
+      </if>
+      <if test="securityPerson != null">
+        SECURITY_PERSON,
+      </if>
+      <if test="remarkInfo != null">
+        REMARK_INFO,
+      </if>
+      <if test="managerOrg != null">
+        MANAGER_ORG,
+      </if>
+      <if test="policeStation != null">
+        POLICE_STATION,
+      </if>
+      <if test="subCountyCode != null">
+        SUB_COUNTY_CODE,
+      </if>
+      <if test="subSecurityBureau != null">
+        SUB_SECURITY_BUREAU,
+      </if>
+      <if test="registerPerson != null">
+        REGISTER_PERSON,
+      </if>
+      <if test="ownCustomerId != null">
+        OWN_CUSTOMER_ID,
+      </if>
+      <if test="createFrom != null">
+        CREATE_FROM,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="collectionBank != null">
+        COLLECTION_BANK,
+      </if>
+      <if test="collectionAccount != null">
+        COLLECTION_ACCOUNT,
+      </if>
+      <if test="serviceDepartmentId != null">
+        SERVICE_DEPARTMENT_ID,
+      </if>
+      <if test="custLevel != null">
+        CUST_LEVEL,
+      </if>
+      <if test="localTaxAuthorityId != null">
+        LOCAL_TAX_AUTHORITY_ID,
+      </if>
+      <if test="enterpriseScale != null">
+        ENTERPRISE_SCALE,
+      </if>
+      <if test="isWithBranches != null">
+        IS_WITH_BRANCHES,
+      </if>
+      <if test="custNamePinyin != null">
+        CUST_NAME_PINYIN,
+      </if>
+      <if test="sourceBusinessTypeId != null">
+        SOURCE_BUSINESS_TYPE_ID,
+      </if>
+      <if test="policeId != null">
+        POLICE_ID,
+      </if>
+      <if test="synDataMark != null">
+        SYN_DATA_MARK,
+      </if>
+      <if test="isBankCollection != null">
+        IS_BANK_COLLECTION,
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE,
+      </if>
+      <if test="bankCollectionAgreementId != null">
+        BANK_COLLECTION_AGREEMENT_ID,
+      </if>
+      <if test="bankCollectionAgreementDate != null">
+        BANK_COLLECTION_AGREEMENT_DATE,
+      </if>
+      <if test="importNo != null">
+        IMPORT_NO,
+      </if>
+      <if test="vpnNo != null">
+        VPN_NO,
+      </if>
+      <if test="vpnPass != null">
+        VPN_PASS,
+      </if>
+      <if test="childPoliceId != null">
+        CHILD_POLICE_ID,
+      </if>
+      <if test="selfSelValue != null">
+        SELF_SEL_VALUE,
+      </if>
+      <if test="userDefine01 != null">
+        USER_DEFINE01,
+      </if>
+      <if test="userDefine02 != null">
+        USER_DEFINE02,
+      </if>
+      <if test="userDefine03 != null">
+        USER_DEFINE03,
+      </if>
+      <if test="userDefine04 != null">
+        USER_DEFINE04,
+      </if>
+      <if test="userDefine05 != null">
+        USER_DEFINE05,
+      </if>
+      <if test="userDefine06 != null">
+        USER_DEFINE06,
+      </if>
+      <if test="userDefine07 != null">
+        USER_DEFINE07,
+      </if>
+      <if test="userDefine08 != null">
+        USER_DEFINE08,
+      </if>
+      <if test="userDefine09 != null">
+        USER_DEFINE09,
+      </if>
+      <if test="userDefine10 != null">
+        USER_DEFINE10,
+      </if>
+      <if test="userDefine11 != null">
+        USER_DEFINE11,
+      </if>
+      <if test="userDefine12 != null">
+        USER_DEFINE12,
+      </if>
+      <if test="userDefine13 != null">
+        USER_DEFINE13,
+      </if>
+      <if test="userDefine14 != null">
+        USER_DEFINE14,
+      </if>
+      <if test="userDefine15 != null">
+        USER_DEFINE15,
+      </if>
+      <if test="userDefine16 != null">
+        USER_DEFINE16,
+      </if>
+      <if test="isDkh != null">
+        IS_DKH,
+      </if>
+      <if test="userDefine18 != null">
+        USER_DEFINE18,
+      </if>
+      <if test="userDefine19 != null">
+        USER_DEFINE19,
+      </if>
+      <if test="userDefine20 != null">
+        USER_DEFINE20,
+      </if>
+      <if test="taxRate != null">
+        TAX_RATE,
+      </if>
+      <if test="merCode != null">
+        MER_CODE,
+      </if>
+      <if test="merDevproperty != null">
+        MER_DEVPROPERTY,
+      </if>
+      <if test="merTransaction != null">
+        MER_TRANSACTION,
+      </if>
+      <if test="merBusTime != null">
+        MER_BUS_TIME,
+      </if>
+      <if test="merSingle != null">
+        MER_SINGLE,
+      </if>
+      <if test="merCommu != null">
+        MER_COMMU,
+      </if>
+      <if test="shopKeyid != null">
+        SHOP_KEYID,
+      </if>
+      <if test="shopOrRe != null">
+        SHOP_OR_RE,
+      </if>
+      <if test="selfHy != null">
+        SELF_HY,
+      </if>
+      <if test="selfEhy != null">
+        SELF_EHY,
+      </if>
+      <if test="selfShy != null">
+        SELF_SHY,
+      </if>
+      <if test="selfIsMoveout != null">
+        SELF_IS_MOVEOUT,
+      </if>
+      <if test="selfIsInstall != null">
+        SELF_IS_INSTALL,
+      </if>
+      <if test="selfContractno != null">
+        SELF_CONTRACTNO,
+      </if>
+      <if test="selfCampinc != null">
+        SELF_CAMPINC,
+      </if>
+      <if test="logoutNote != null">
+        LOGOUT_NOTE,
+      </if>
+      <if test="backupTaxCode != null">
+        BACKUP_TAX_CODE,
+      </if>
+      <if test="orgMerId != null">
+        ORG_MER_ID,
+      </if>
+      <if test="selfJni != null">
+        SELF_JNI,
+      </if>
+      <if test="selfFwuq != null">
+        SELF_FWUQ,
+      </if>
+      <if test="partaAffiliationCode != null">
+        PARTA_AFFILIATION_CODE,
+      </if>
+      <if test="relatedPartyCode != null">
+        RELATED_PARTY_CODE,
+      </if>
+      <if test="auditSign != null">
+        AUDIT_SIGN,
+      </if>
+      <if test="selfIsvip != null">
+        SELF_ISVIP,
+      </if>
+      <if test="resourceCode != null">
+        RESOURCE_CODE,
+      </if>
+      <if test="userDefine17 != null">
+        USER_DEFINE17,
+      </if>
+      <if test="invoiceName != null">
+        INVOICE_NAME,
+      </if>
+      <if test="invoiceTel != null">
+        INVOICE_TEL,
+      </if>
+      <if test="invoiceAddr != null">
+        INVOICE_ADDR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orgCustomerId != null">
+        #{orgCustomerId,jdbcType=DECIMAL},
+      </if>
+      <if test="custClassId != null">
+        #{custClassId,jdbcType=DECIMAL},
+      </if>
+      <if test="custTaxCode != null">
+        #{custTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxBureauId != null">
+        #{taxBureauId,jdbcType=DECIMAL},
+      </if>
+      <if test="substationId != null">
+        #{substationId,jdbcType=DECIMAL},
+      </if>
+      <if test="servicePersonalId != null">
+        #{servicePersonalId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notes != null">
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=DECIMAL},
+      </if>
+      <if test="enterpriseTypeId != null">
+        #{enterpriseTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="vocationId != null">
+        #{vocationId,jdbcType=DECIMAL},
+      </if>
+      <if test="businessScope != null">
+        #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="accountBank != null">
+        #{accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null">
+        #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isMissing != null">
+        #{isMissing,jdbcType=DECIMAL},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=DECIMAL},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=DECIMAL},
+      </if>
+      <if test="updateOperatorId != null">
+        #{updateOperatorId,jdbcType=DECIMAL},
+      </if>
+      <if test="shortcut != null">
+        #{shortcut,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=DECIMAL},
+      </if>
+      <if test="subSecurityBureauId != null">
+        #{subSecurityBureauId,jdbcType=DECIMAL},
+      </if>
+      <if test="starLevelId != null">
+        #{starLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevelId != null">
+        #{custLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredFund != null">
+        #{registeredFund,jdbcType=DECIMAL},
+      </if>
+      <if test="personCount != null">
+        #{personCount,jdbcType=DECIMAL},
+      </if>
+      <if test="accountantCount != null">
+        #{accountantCount,jdbcType=DECIMAL},
+      </if>
+      <if test="custScaleId != null">
+        #{custScaleId,jdbcType=VARCHAR},
+      </if>
+      <if test="computerCount != null">
+        #{computerCount,jdbcType=DECIMAL},
+      </if>
+      <if test="networkTypeId != null">
+        #{networkTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLevelId != null">
+        #{creditLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimit != null">
+        #{creditLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="custCode != null">
+        #{custCode,jdbcType=VARCHAR},
+      </if>
+      <if test="generalManager != null">
+        #{generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="locationTypeId != null">
+        #{locationTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="trainingCount != null">
+        #{trainingCount,jdbcType=DECIMAL},
+      </if>
+      <if test="securityPersonCount != null">
+        #{securityPersonCount,jdbcType=DECIMAL},
+      </if>
+      <if test="roomCount != null">
+        #{roomCount,jdbcType=DECIMAL},
+      </if>
+      <if test="parentOrgCustomerId != null">
+        #{parentOrgCustomerId,jdbcType=DECIMAL},
+      </if>
+      <if test="vocationForceId != null">
+        #{vocationForceId,jdbcType=VARCHAR},
+      </if>
+      <if test="tel1 != null">
+        #{tel1,jdbcType=VARCHAR},
+      </if>
+      <if test="tel2 != null">
+        #{tel2,jdbcType=VARCHAR},
+      </if>
+      <if test="tel3 != null">
+        #{tel3,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="securityTel != null">
+        #{securityTel,jdbcType=VARCHAR},
+      </if>
+      <if test="bedCount != null">
+        #{bedCount,jdbcType=DECIMAL},
+      </if>
+      <if test="securityPerson != null">
+        #{securityPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkInfo != null">
+        #{remarkInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="managerOrg != null">
+        #{managerOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="policeStation != null">
+        #{policeStation,jdbcType=VARCHAR},
+      </if>
+      <if test="subCountyCode != null">
+        #{subCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="subSecurityBureau != null">
+        #{subSecurityBureau,jdbcType=VARCHAR},
+      </if>
+      <if test="registerPerson != null">
+        #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="ownCustomerId != null">
+        #{ownCustomerId,jdbcType=VARCHAR},
+      </if>
+      <if test="createFrom != null">
+        #{createFrom,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="collectionBank != null">
+        #{collectionBank,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionAccount != null">
+        #{collectionAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceDepartmentId != null">
+        #{serviceDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="custLevel != null">
+        #{custLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="localTaxAuthorityId != null">
+        #{localTaxAuthorityId,jdbcType=DECIMAL},
+      </if>
+      <if test="enterpriseScale != null">
+        #{enterpriseScale,jdbcType=DECIMAL},
+      </if>
+      <if test="isWithBranches != null">
+        #{isWithBranches,jdbcType=DECIMAL},
+      </if>
+      <if test="custNamePinyin != null">
+        #{custNamePinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceBusinessTypeId != null">
+        #{sourceBusinessTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="policeId != null">
+        #{policeId,jdbcType=DECIMAL},
+      </if>
+      <if test="synDataMark != null">
+        #{synDataMark,jdbcType=DECIMAL},
+      </if>
+      <if test="isBankCollection != null">
+        #{isBankCollection,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCollectionAgreementId != null">
+        #{bankCollectionAgreementId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCollectionAgreementDate != null">
+        #{bankCollectionAgreementDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="importNo != null">
+        #{importNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vpnNo != null">
+        #{vpnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vpnPass != null">
+        #{vpnPass,jdbcType=VARCHAR},
+      </if>
+      <if test="childPoliceId != null">
+        #{childPoliceId,jdbcType=DECIMAL},
+      </if>
+      <if test="selfSelValue != null">
+        #{selfSelValue,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine01 != null">
+        #{userDefine01,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine02 != null">
+        #{userDefine02,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine03 != null">
+        #{userDefine03,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine04 != null">
+        #{userDefine04,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine05 != null">
+        #{userDefine05,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine06 != null">
+        #{userDefine06,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine07 != null">
+        #{userDefine07,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine08 != null">
+        #{userDefine08,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine09 != null">
+        #{userDefine09,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine10 != null">
+        #{userDefine10,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine11 != null">
+        #{userDefine11,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine12 != null">
+        #{userDefine12,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine13 != null">
+        #{userDefine13,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine14 != null">
+        #{userDefine14,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine15 != null">
+        #{userDefine15,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine16 != null">
+        #{userDefine16,jdbcType=VARCHAR},
+      </if>
+      <if test="isDkh != null">
+        #{isDkh,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine18 != null">
+        #{userDefine18,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine19 != null">
+        #{userDefine19,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine20 != null">
+        #{userDefine20,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null">
+        #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="merCode != null">
+        #{merCode,jdbcType=VARCHAR},
+      </if>
+      <if test="merDevproperty != null">
+        #{merDevproperty,jdbcType=DECIMAL},
+      </if>
+      <if test="merTransaction != null">
+        #{merTransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="merBusTime != null">
+        #{merBusTime,jdbcType=VARCHAR},
+      </if>
+      <if test="merSingle != null">
+        #{merSingle,jdbcType=VARCHAR},
+      </if>
+      <if test="merCommu != null">
+        #{merCommu,jdbcType=VARCHAR},
+      </if>
+      <if test="shopKeyid != null">
+        #{shopKeyid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOrRe != null">
+        #{shopOrRe,jdbcType=CHAR},
+      </if>
+      <if test="selfHy != null">
+        #{selfHy,jdbcType=DECIMAL},
+      </if>
+      <if test="selfEhy != null">
+        #{selfEhy,jdbcType=DECIMAL},
+      </if>
+      <if test="selfShy != null">
+        #{selfShy,jdbcType=DECIMAL},
+      </if>
+      <if test="selfIsMoveout != null">
+        #{selfIsMoveout,jdbcType=DECIMAL},
+      </if>
+      <if test="selfIsInstall != null">
+        #{selfIsInstall,jdbcType=DECIMAL},
+      </if>
+      <if test="selfContractno != null">
+        #{selfContractno,jdbcType=VARCHAR},
+      </if>
+      <if test="selfCampinc != null">
+        #{selfCampinc,jdbcType=DECIMAL},
+      </if>
+      <if test="logoutNote != null">
+        #{logoutNote,jdbcType=DECIMAL},
+      </if>
+      <if test="backupTaxCode != null">
+        #{backupTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgMerId != null">
+        #{orgMerId,jdbcType=VARCHAR},
+      </if>
+      <if test="selfJni != null">
+        #{selfJni,jdbcType=DECIMAL},
+      </if>
+      <if test="selfFwuq != null">
+        #{selfFwuq,jdbcType=DECIMAL},
+      </if>
+      <if test="partaAffiliationCode != null">
+        #{partaAffiliationCode,jdbcType=DECIMAL},
+      </if>
+      <if test="relatedPartyCode != null">
+        #{relatedPartyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditSign != null">
+        #{auditSign,jdbcType=DECIMAL},
+      </if>
+      <if test="selfIsvip != null">
+        #{selfIsvip,jdbcType=DECIMAL},
+      </if>
+      <if test="resourceCode != null">
+        #{resourceCode,jdbcType=DECIMAL},
+      </if>
+      <if test="userDefine17 != null">
+        #{userDefine17,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceName != null">
+        #{invoiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTel != null">
+        #{invoiceTel,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceAddr != null">
+        #{invoiceAddr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db1.domain.CustomerExample" resultType="java.lang.Long">
+    select count(*) from CUS_ORG_CUSTOMER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CUS_ORG_CUSTOMER
+    <set>
+      <if test="record.orgCustomerId != null">
+        ORG_CUSTOMER_ID = #{record.orgCustomerId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.custClassId != null">
+        CUST_CLASS_ID = #{record.custClassId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.custTaxCode != null">
+        CUST_TAX_CODE = #{record.custTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxBureauId != null">
+        TAX_BUREAU_ID = #{record.taxBureauId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.substationId != null">
+        SUBSTATION_ID = #{record.substationId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.servicePersonalId != null">
+        SERVICE_PERSONAL_ID = #{record.servicePersonalId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orgId != null">
+        ORG_ID = #{record.orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createDate != null">
+        CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.notes != null">
+        NOTES = #{record.notes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null">
+        UPDATE_DATE = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.custName != null">
+        CUST_NAME = #{record.custName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null">
+        URL = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regionId != null">
+        REGION_ID = #{record.regionId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.enterpriseTypeId != null">
+        ENTERPRISE_TYPE_ID = #{record.enterpriseTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vocationId != null">
+        VOCATION_ID = #{record.vocationId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.businessScope != null">
+        BUSINESS_SCOPE = #{record.businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountBank != null">
+        ACCOUNT_BANK = #{record.accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankAccount != null">
+        BANK_ACCOUNT = #{record.bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalPerson != null">
+        LEGAL_PERSON = #{record.legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerDate != null">
+        REGISTER_DATE = #{record.registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isMissing != null">
+        IS_MISSING = #{record.isMissing,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isValid != null">
+        IS_VALID = #{record.isValid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createrId != null">
+        CREATER_ID = #{record.createrId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.updateOperatorId != null">
+        UPDATE_OPERATOR_ID = #{record.updateOperatorId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shortcut != null">
+        SHORTCUT = #{record.shortcut,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerId != null">
+        CUSTOMER_ID = #{record.customerId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.subSecurityBureauId != null">
+        SUB_SECURITY_BUREAU_ID = #{record.subSecurityBureauId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.starLevelId != null">
+        STAR_LEVEL_ID = #{record.starLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custLevelId != null">
+        CUST_LEVEL_ID = #{record.custLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registeredFund != null">
+        REGISTERED_FUND = #{record.registeredFund,jdbcType=DECIMAL},
+      </if>
+      <if test="record.personCount != null">
+        PERSON_COUNT = #{record.personCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.accountantCount != null">
+        ACCOUNTANT_COUNT = #{record.accountantCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.custScaleId != null">
+        CUST_SCALE_ID = #{record.custScaleId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.computerCount != null">
+        COMPUTER_COUNT = #{record.computerCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.networkTypeId != null">
+        NETWORK_TYPE_ID = #{record.networkTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditLevelId != null">
+        CREDIT_LEVEL_ID = #{record.creditLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditLimit != null">
+        CREDIT_LIMIT = #{record.creditLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="record.custCode != null">
+        CUST_CODE = #{record.custCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.generalManager != null">
+        GENERAL_MANAGER = #{record.generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locationTypeId != null">
+        LOCATION_TYPE_ID = #{record.locationTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainingCount != null">
+        TRAINING_COUNT = #{record.trainingCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.securityPersonCount != null">
+        SECURITY_PERSON_COUNT = #{record.securityPersonCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.roomCount != null">
+        ROOM_COUNT = #{record.roomCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.parentOrgCustomerId != null">
+        PARENT_ORG_CUSTOMER_ID = #{record.parentOrgCustomerId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vocationForceId != null">
+        VOCATION_FORCE_ID = #{record.vocationForceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel1 != null">
+        TEL1 = #{record.tel1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel2 != null">
+        TEL2 = #{record.tel2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel3 != null">
+        TEL3 = #{record.tel3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fax != null">
+        FAX = #{record.fax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null">
+        MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.securityTel != null">
+        SECURITY_TEL = #{record.securityTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bedCount != null">
+        BED_COUNT = #{record.bedCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.securityPerson != null">
+        SECURITY_PERSON = #{record.securityPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarkInfo != null">
+        REMARK_INFO = #{record.remarkInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.managerOrg != null">
+        MANAGER_ORG = #{record.managerOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policeStation != null">
+        POLICE_STATION = #{record.policeStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subCountyCode != null">
+        SUB_COUNTY_CODE = #{record.subCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subSecurityBureau != null">
+        SUB_SECURITY_BUREAU = #{record.subSecurityBureau,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerPerson != null">
+        REGISTER_PERSON = #{record.registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownCustomerId != null">
+        OWN_CUSTOMER_ID = #{record.ownCustomerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createFrom != null">
+        CREATE_FROM = #{record.createFrom,jdbcType=DECIMAL},
+      </if>
+      <if test="record.state != null">
+        STATE = #{record.state,jdbcType=DECIMAL},
+      </if>
+      <if test="record.collectionBank != null">
+        COLLECTION_BANK = #{record.collectionBank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.collectionAccount != null">
+        COLLECTION_ACCOUNT = #{record.collectionAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceDepartmentId != null">
+        SERVICE_DEPARTMENT_ID = #{record.serviceDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.custLevel != null">
+        CUST_LEVEL = #{record.custLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="record.localTaxAuthorityId != null">
+        LOCAL_TAX_AUTHORITY_ID = #{record.localTaxAuthorityId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.enterpriseScale != null">
+        ENTERPRISE_SCALE = #{record.enterpriseScale,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isWithBranches != null">
+        IS_WITH_BRANCHES = #{record.isWithBranches,jdbcType=DECIMAL},
+      </if>
+      <if test="record.custNamePinyin != null">
+        CUST_NAME_PINYIN = #{record.custNamePinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceBusinessTypeId != null">
+        SOURCE_BUSINESS_TYPE_ID = #{record.sourceBusinessTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.policeId != null">
+        POLICE_ID = #{record.policeId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.synDataMark != null">
+        SYN_DATA_MARK = #{record.synDataMark,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isBankCollection != null">
+        IS_BANK_COLLECTION = #{record.isBankCollection,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bankCode != null">
+        BANK_CODE = #{record.bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCollectionAgreementId != null">
+        BANK_COLLECTION_AGREEMENT_ID = #{record.bankCollectionAgreementId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCollectionAgreementDate != null">
+        BANK_COLLECTION_AGREEMENT_DATE = #{record.bankCollectionAgreementDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.importNo != null">
+        IMPORT_NO = #{record.importNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vpnNo != null">
+        VPN_NO = #{record.vpnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vpnPass != null">
+        VPN_PASS = #{record.vpnPass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.childPoliceId != null">
+        CHILD_POLICE_ID = #{record.childPoliceId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfSelValue != null">
+        SELF_SEL_VALUE = #{record.selfSelValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine01 != null">
+        USER_DEFINE01 = #{record.userDefine01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine02 != null">
+        USER_DEFINE02 = #{record.userDefine02,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine03 != null">
+        USER_DEFINE03 = #{record.userDefine03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine04 != null">
+        USER_DEFINE04 = #{record.userDefine04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine05 != null">
+        USER_DEFINE05 = #{record.userDefine05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine06 != null">
+        USER_DEFINE06 = #{record.userDefine06,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine07 != null">
+        USER_DEFINE07 = #{record.userDefine07,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine08 != null">
+        USER_DEFINE08 = #{record.userDefine08,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine09 != null">
+        USER_DEFINE09 = #{record.userDefine09,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine10 != null">
+        USER_DEFINE10 = #{record.userDefine10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine11 != null">
+        USER_DEFINE11 = #{record.userDefine11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine12 != null">
+        USER_DEFINE12 = #{record.userDefine12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine13 != null">
+        USER_DEFINE13 = #{record.userDefine13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine14 != null">
+        USER_DEFINE14 = #{record.userDefine14,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine15 != null">
+        USER_DEFINE15 = #{record.userDefine15,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine16 != null">
+        USER_DEFINE16 = #{record.userDefine16,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDkh != null">
+        IS_DKH = #{record.isDkh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine18 != null">
+        USER_DEFINE18 = #{record.userDefine18,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine19 != null">
+        USER_DEFINE19 = #{record.userDefine19,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userDefine20 != null">
+        USER_DEFINE20 = #{record.userDefine20,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxRate != null">
+        TAX_RATE = #{record.taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merCode != null">
+        MER_CODE = #{record.merCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merDevproperty != null">
+        MER_DEVPROPERTY = #{record.merDevproperty,jdbcType=DECIMAL},
+      </if>
+      <if test="record.merTransaction != null">
+        MER_TRANSACTION = #{record.merTransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merBusTime != null">
+        MER_BUS_TIME = #{record.merBusTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merSingle != null">
+        MER_SINGLE = #{record.merSingle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merCommu != null">
+        MER_COMMU = #{record.merCommu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopKeyid != null">
+        SHOP_KEYID = #{record.shopKeyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopOrRe != null">
+        SHOP_OR_RE = #{record.shopOrRe,jdbcType=CHAR},
+      </if>
+      <if test="record.selfHy != null">
+        SELF_HY = #{record.selfHy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfEhy != null">
+        SELF_EHY = #{record.selfEhy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfShy != null">
+        SELF_SHY = #{record.selfShy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfIsMoveout != null">
+        SELF_IS_MOVEOUT = #{record.selfIsMoveout,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfIsInstall != null">
+        SELF_IS_INSTALL = #{record.selfIsInstall,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfContractno != null">
+        SELF_CONTRACTNO = #{record.selfContractno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selfCampinc != null">
+        SELF_CAMPINC = #{record.selfCampinc,jdbcType=DECIMAL},
+      </if>
+      <if test="record.logoutNote != null">
+        LOGOUT_NOTE = #{record.logoutNote,jdbcType=DECIMAL},
+      </if>
+      <if test="record.backupTaxCode != null">
+        BACKUP_TAX_CODE = #{record.backupTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgMerId != null">
+        ORG_MER_ID = #{record.orgMerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selfJni != null">
+        SELF_JNI = #{record.selfJni,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfFwuq != null">
+        SELF_FWUQ = #{record.selfFwuq,jdbcType=DECIMAL},
+      </if>
+      <if test="record.partaAffiliationCode != null">
+        PARTA_AFFILIATION_CODE = #{record.partaAffiliationCode,jdbcType=DECIMAL},
+      </if>
+      <if test="record.relatedPartyCode != null">
+        RELATED_PARTY_CODE = #{record.relatedPartyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditSign != null">
+        AUDIT_SIGN = #{record.auditSign,jdbcType=DECIMAL},
+      </if>
+      <if test="record.selfIsvip != null">
+        SELF_ISVIP = #{record.selfIsvip,jdbcType=DECIMAL},
+      </if>
+      <if test="record.resourceCode != null">
+        RESOURCE_CODE = #{record.resourceCode,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userDefine17 != null">
+        USER_DEFINE17 = #{record.userDefine17,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceName != null">
+        INVOICE_NAME = #{record.invoiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceTel != null">
+        INVOICE_TEL = #{record.invoiceTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceAddr != null">
+        INVOICE_ADDR = #{record.invoiceAddr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CUS_ORG_CUSTOMER
+    set ORG_CUSTOMER_ID = #{record.orgCustomerId,jdbcType=DECIMAL},
+      CUST_CLASS_ID = #{record.custClassId,jdbcType=DECIMAL},
+      CUST_TAX_CODE = #{record.custTaxCode,jdbcType=VARCHAR},
+      TAX_BUREAU_ID = #{record.taxBureauId,jdbcType=DECIMAL},
+      SUBSTATION_ID = #{record.substationId,jdbcType=DECIMAL},
+      SERVICE_PERSONAL_ID = #{record.servicePersonalId,jdbcType=DECIMAL},
+      ORG_ID = #{record.orgId,jdbcType=DECIMAL},
+      CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      NOTES = #{record.notes,jdbcType=VARCHAR},
+      UPDATE_DATE = #{record.updateDate,jdbcType=TIMESTAMP},
+      CUST_NAME = #{record.custName,jdbcType=VARCHAR},
+      URL = #{record.url,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      REGION_ID = #{record.regionId,jdbcType=DECIMAL},
+      ENTERPRISE_TYPE_ID = #{record.enterpriseTypeId,jdbcType=DECIMAL},
+      VOCATION_ID = #{record.vocationId,jdbcType=DECIMAL},
+      BUSINESS_SCOPE = #{record.businessScope,jdbcType=VARCHAR},
+      ACCOUNT_BANK = #{record.accountBank,jdbcType=VARCHAR},
+      BANK_ACCOUNT = #{record.bankAccount,jdbcType=VARCHAR},
+      LEGAL_PERSON = #{record.legalPerson,jdbcType=VARCHAR},
+      REGISTER_DATE = #{record.registerDate,jdbcType=TIMESTAMP},
+      IS_MISSING = #{record.isMissing,jdbcType=DECIMAL},
+      IS_VALID = #{record.isValid,jdbcType=DECIMAL},
+      CREATER_ID = #{record.createrId,jdbcType=DECIMAL},
+      UPDATE_OPERATOR_ID = #{record.updateOperatorId,jdbcType=DECIMAL},
+      SHORTCUT = #{record.shortcut,jdbcType=VARCHAR},
+      CUSTOMER_ID = #{record.customerId,jdbcType=DECIMAL},
+      SUB_SECURITY_BUREAU_ID = #{record.subSecurityBureauId,jdbcType=DECIMAL},
+      STAR_LEVEL_ID = #{record.starLevelId,jdbcType=VARCHAR},
+      CUST_LEVEL_ID = #{record.custLevelId,jdbcType=VARCHAR},
+      REGISTERED_FUND = #{record.registeredFund,jdbcType=DECIMAL},
+      PERSON_COUNT = #{record.personCount,jdbcType=DECIMAL},
+      ACCOUNTANT_COUNT = #{record.accountantCount,jdbcType=DECIMAL},
+      CUST_SCALE_ID = #{record.custScaleId,jdbcType=VARCHAR},
+      COMPUTER_COUNT = #{record.computerCount,jdbcType=DECIMAL},
+      NETWORK_TYPE_ID = #{record.networkTypeId,jdbcType=VARCHAR},
+      CREDIT_LEVEL_ID = #{record.creditLevelId,jdbcType=VARCHAR},
+      CREDIT_LIMIT = #{record.creditLimit,jdbcType=DECIMAL},
+      CUST_CODE = #{record.custCode,jdbcType=VARCHAR},
+      GENERAL_MANAGER = #{record.generalManager,jdbcType=VARCHAR},
+      LOCATION_TYPE_ID = #{record.locationTypeId,jdbcType=VARCHAR},
+      TRAINING_COUNT = #{record.trainingCount,jdbcType=DECIMAL},
+      SECURITY_PERSON_COUNT = #{record.securityPersonCount,jdbcType=DECIMAL},
+      ROOM_COUNT = #{record.roomCount,jdbcType=DECIMAL},
+      PARENT_ORG_CUSTOMER_ID = #{record.parentOrgCustomerId,jdbcType=DECIMAL},
+      VOCATION_FORCE_ID = #{record.vocationForceId,jdbcType=VARCHAR},
+      TEL1 = #{record.tel1,jdbcType=VARCHAR},
+      TEL2 = #{record.tel2,jdbcType=VARCHAR},
+      TEL3 = #{record.tel3,jdbcType=VARCHAR},
+      FAX = #{record.fax,jdbcType=VARCHAR},
+      MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      SECURITY_TEL = #{record.securityTel,jdbcType=VARCHAR},
+      BED_COUNT = #{record.bedCount,jdbcType=DECIMAL},
+      SECURITY_PERSON = #{record.securityPerson,jdbcType=VARCHAR},
+      REMARK_INFO = #{record.remarkInfo,jdbcType=VARCHAR},
+      MANAGER_ORG = #{record.managerOrg,jdbcType=VARCHAR},
+      POLICE_STATION = #{record.policeStation,jdbcType=VARCHAR},
+      SUB_COUNTY_CODE = #{record.subCountyCode,jdbcType=VARCHAR},
+      SUB_SECURITY_BUREAU = #{record.subSecurityBureau,jdbcType=VARCHAR},
+      REGISTER_PERSON = #{record.registerPerson,jdbcType=VARCHAR},
+      OWN_CUSTOMER_ID = #{record.ownCustomerId,jdbcType=VARCHAR},
+      CREATE_FROM = #{record.createFrom,jdbcType=DECIMAL},
+      STATE = #{record.state,jdbcType=DECIMAL},
+      COLLECTION_BANK = #{record.collectionBank,jdbcType=VARCHAR},
+      COLLECTION_ACCOUNT = #{record.collectionAccount,jdbcType=VARCHAR},
+      SERVICE_DEPARTMENT_ID = #{record.serviceDepartmentId,jdbcType=DECIMAL},
+      CUST_LEVEL = #{record.custLevel,jdbcType=DECIMAL},
+      LOCAL_TAX_AUTHORITY_ID = #{record.localTaxAuthorityId,jdbcType=DECIMAL},
+      ENTERPRISE_SCALE = #{record.enterpriseScale,jdbcType=DECIMAL},
+      IS_WITH_BRANCHES = #{record.isWithBranches,jdbcType=DECIMAL},
+      CUST_NAME_PINYIN = #{record.custNamePinyin,jdbcType=VARCHAR},
+      SOURCE_BUSINESS_TYPE_ID = #{record.sourceBusinessTypeId,jdbcType=DECIMAL},
+      POLICE_ID = #{record.policeId,jdbcType=DECIMAL},
+      SYN_DATA_MARK = #{record.synDataMark,jdbcType=DECIMAL},
+      IS_BANK_COLLECTION = #{record.isBankCollection,jdbcType=DECIMAL},
+      BANK_CODE = #{record.bankCode,jdbcType=VARCHAR},
+      BANK_COLLECTION_AGREEMENT_ID = #{record.bankCollectionAgreementId,jdbcType=VARCHAR},
+      BANK_COLLECTION_AGREEMENT_DATE = #{record.bankCollectionAgreementDate,jdbcType=TIMESTAMP},
+      IMPORT_NO = #{record.importNo,jdbcType=VARCHAR},
+      VPN_NO = #{record.vpnNo,jdbcType=VARCHAR},
+      VPN_PASS = #{record.vpnPass,jdbcType=VARCHAR},
+      CHILD_POLICE_ID = #{record.childPoliceId,jdbcType=DECIMAL},
+      SELF_SEL_VALUE = #{record.selfSelValue,jdbcType=VARCHAR},
+      USER_DEFINE01 = #{record.userDefine01,jdbcType=VARCHAR},
+      USER_DEFINE02 = #{record.userDefine02,jdbcType=VARCHAR},
+      USER_DEFINE03 = #{record.userDefine03,jdbcType=VARCHAR},
+      USER_DEFINE04 = #{record.userDefine04,jdbcType=VARCHAR},
+      USER_DEFINE05 = #{record.userDefine05,jdbcType=VARCHAR},
+      USER_DEFINE06 = #{record.userDefine06,jdbcType=VARCHAR},
+      USER_DEFINE07 = #{record.userDefine07,jdbcType=VARCHAR},
+      USER_DEFINE08 = #{record.userDefine08,jdbcType=VARCHAR},
+      USER_DEFINE09 = #{record.userDefine09,jdbcType=VARCHAR},
+      USER_DEFINE10 = #{record.userDefine10,jdbcType=VARCHAR},
+      USER_DEFINE11 = #{record.userDefine11,jdbcType=VARCHAR},
+      USER_DEFINE12 = #{record.userDefine12,jdbcType=VARCHAR},
+      USER_DEFINE13 = #{record.userDefine13,jdbcType=VARCHAR},
+      USER_DEFINE14 = #{record.userDefine14,jdbcType=VARCHAR},
+      USER_DEFINE15 = #{record.userDefine15,jdbcType=VARCHAR},
+      USER_DEFINE16 = #{record.userDefine16,jdbcType=VARCHAR},
+      IS_DKH = #{record.isDkh,jdbcType=VARCHAR},
+      USER_DEFINE18 = #{record.userDefine18,jdbcType=VARCHAR},
+      USER_DEFINE19 = #{record.userDefine19,jdbcType=VARCHAR},
+      USER_DEFINE20 = #{record.userDefine20,jdbcType=VARCHAR},
+      TAX_RATE = #{record.taxRate,jdbcType=VARCHAR},
+      MER_CODE = #{record.merCode,jdbcType=VARCHAR},
+      MER_DEVPROPERTY = #{record.merDevproperty,jdbcType=DECIMAL},
+      MER_TRANSACTION = #{record.merTransaction,jdbcType=VARCHAR},
+      MER_BUS_TIME = #{record.merBusTime,jdbcType=VARCHAR},
+      MER_SINGLE = #{record.merSingle,jdbcType=VARCHAR},
+      MER_COMMU = #{record.merCommu,jdbcType=VARCHAR},
+      SHOP_KEYID = #{record.shopKeyid,jdbcType=VARCHAR},
+      SHOP_OR_RE = #{record.shopOrRe,jdbcType=CHAR},
+      SELF_HY = #{record.selfHy,jdbcType=DECIMAL},
+      SELF_EHY = #{record.selfEhy,jdbcType=DECIMAL},
+      SELF_SHY = #{record.selfShy,jdbcType=DECIMAL},
+      SELF_IS_MOVEOUT = #{record.selfIsMoveout,jdbcType=DECIMAL},
+      SELF_IS_INSTALL = #{record.selfIsInstall,jdbcType=DECIMAL},
+      SELF_CONTRACTNO = #{record.selfContractno,jdbcType=VARCHAR},
+      SELF_CAMPINC = #{record.selfCampinc,jdbcType=DECIMAL},
+      LOGOUT_NOTE = #{record.logoutNote,jdbcType=DECIMAL},
+      BACKUP_TAX_CODE = #{record.backupTaxCode,jdbcType=VARCHAR},
+      ORG_MER_ID = #{record.orgMerId,jdbcType=VARCHAR},
+      SELF_JNI = #{record.selfJni,jdbcType=DECIMAL},
+      SELF_FWUQ = #{record.selfFwuq,jdbcType=DECIMAL},
+      PARTA_AFFILIATION_CODE = #{record.partaAffiliationCode,jdbcType=DECIMAL},
+      RELATED_PARTY_CODE = #{record.relatedPartyCode,jdbcType=VARCHAR},
+      AUDIT_SIGN = #{record.auditSign,jdbcType=DECIMAL},
+      SELF_ISVIP = #{record.selfIsvip,jdbcType=DECIMAL},
+      RESOURCE_CODE = #{record.resourceCode,jdbcType=DECIMAL},
+      USER_DEFINE17 = #{record.userDefine17,jdbcType=VARCHAR},
+      INVOICE_NAME = #{record.invoiceName,jdbcType=VARCHAR},
+      INVOICE_TEL = #{record.invoiceTel,jdbcType=VARCHAR},
+      INVOICE_ADDR = #{record.invoiceAddr,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aisino.db1.domain.Customer">
+    update CUS_ORG_CUSTOMER
+    <set>
+      <if test="custClassId != null">
+        CUST_CLASS_ID = #{custClassId,jdbcType=DECIMAL},
+      </if>
+      <if test="custTaxCode != null">
+        CUST_TAX_CODE = #{custTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxBureauId != null">
+        TAX_BUREAU_ID = #{taxBureauId,jdbcType=DECIMAL},
+      </if>
+      <if test="substationId != null">
+        SUBSTATION_ID = #{substationId,jdbcType=DECIMAL},
+      </if>
+      <if test="servicePersonalId != null">
+        SERVICE_PERSONAL_ID = #{servicePersonalId,jdbcType=DECIMAL},
+      </if>
+      <if test="orgId != null">
+        ORG_ID = #{orgId,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notes != null">
+        NOTES = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="regionId != null">
+        REGION_ID = #{regionId,jdbcType=DECIMAL},
+      </if>
+      <if test="enterpriseTypeId != null">
+        ENTERPRISE_TYPE_ID = #{enterpriseTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="vocationId != null">
+        VOCATION_ID = #{vocationId,jdbcType=DECIMAL},
+      </if>
+      <if test="businessScope != null">
+        BUSINESS_SCOPE = #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="accountBank != null">
+        ACCOUNT_BANK = #{accountBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        LEGAL_PERSON = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="registerDate != null">
+        REGISTER_DATE = #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isMissing != null">
+        IS_MISSING = #{isMissing,jdbcType=DECIMAL},
+      </if>
+      <if test="isValid != null">
+        IS_VALID = #{isValid,jdbcType=DECIMAL},
+      </if>
+      <if test="createrId != null">
+        CREATER_ID = #{createrId,jdbcType=DECIMAL},
+      </if>
+      <if test="updateOperatorId != null">
+        UPDATE_OPERATOR_ID = #{updateOperatorId,jdbcType=DECIMAL},
+      </if>
+      <if test="shortcut != null">
+        SHORTCUT = #{shortcut,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null">
+        CUSTOMER_ID = #{customerId,jdbcType=DECIMAL},
+      </if>
+      <if test="subSecurityBureauId != null">
+        SUB_SECURITY_BUREAU_ID = #{subSecurityBureauId,jdbcType=DECIMAL},
+      </if>
+      <if test="starLevelId != null">
+        STAR_LEVEL_ID = #{starLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevelId != null">
+        CUST_LEVEL_ID = #{custLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredFund != null">
+        REGISTERED_FUND = #{registeredFund,jdbcType=DECIMAL},
+      </if>
+      <if test="personCount != null">
+        PERSON_COUNT = #{personCount,jdbcType=DECIMAL},
+      </if>
+      <if test="accountantCount != null">
+        ACCOUNTANT_COUNT = #{accountantCount,jdbcType=DECIMAL},
+      </if>
+      <if test="custScaleId != null">
+        CUST_SCALE_ID = #{custScaleId,jdbcType=VARCHAR},
+      </if>
+      <if test="computerCount != null">
+        COMPUTER_COUNT = #{computerCount,jdbcType=DECIMAL},
+      </if>
+      <if test="networkTypeId != null">
+        NETWORK_TYPE_ID = #{networkTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLevelId != null">
+        CREDIT_LEVEL_ID = #{creditLevelId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditLimit != null">
+        CREDIT_LIMIT = #{creditLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="custCode != null">
+        CUST_CODE = #{custCode,jdbcType=VARCHAR},
+      </if>
+      <if test="generalManager != null">
+        GENERAL_MANAGER = #{generalManager,jdbcType=VARCHAR},
+      </if>
+      <if test="locationTypeId != null">
+        LOCATION_TYPE_ID = #{locationTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="trainingCount != null">
+        TRAINING_COUNT = #{trainingCount,jdbcType=DECIMAL},
+      </if>
+      <if test="securityPersonCount != null">
+        SECURITY_PERSON_COUNT = #{securityPersonCount,jdbcType=DECIMAL},
+      </if>
+      <if test="roomCount != null">
+        ROOM_COUNT = #{roomCount,jdbcType=DECIMAL},
+      </if>
+      <if test="parentOrgCustomerId != null">
+        PARENT_ORG_CUSTOMER_ID = #{parentOrgCustomerId,jdbcType=DECIMAL},
+      </if>
+      <if test="vocationForceId != null">
+        VOCATION_FORCE_ID = #{vocationForceId,jdbcType=VARCHAR},
+      </if>
+      <if test="tel1 != null">
+        TEL1 = #{tel1,jdbcType=VARCHAR},
+      </if>
+      <if test="tel2 != null">
+        TEL2 = #{tel2,jdbcType=VARCHAR},
+      </if>
+      <if test="tel3 != null">
+        TEL3 = #{tel3,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        FAX = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="securityTel != null">
+        SECURITY_TEL = #{securityTel,jdbcType=VARCHAR},
+      </if>
+      <if test="bedCount != null">
+        BED_COUNT = #{bedCount,jdbcType=DECIMAL},
+      </if>
+      <if test="securityPerson != null">
+        SECURITY_PERSON = #{securityPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkInfo != null">
+        REMARK_INFO = #{remarkInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="managerOrg != null">
+        MANAGER_ORG = #{managerOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="policeStation != null">
+        POLICE_STATION = #{policeStation,jdbcType=VARCHAR},
+      </if>
+      <if test="subCountyCode != null">
+        SUB_COUNTY_CODE = #{subCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="subSecurityBureau != null">
+        SUB_SECURITY_BUREAU = #{subSecurityBureau,jdbcType=VARCHAR},
+      </if>
+      <if test="registerPerson != null">
+        REGISTER_PERSON = #{registerPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="ownCustomerId != null">
+        OWN_CUSTOMER_ID = #{ownCustomerId,jdbcType=VARCHAR},
+      </if>
+      <if test="createFrom != null">
+        CREATE_FROM = #{createFrom,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=DECIMAL},
+      </if>
+      <if test="collectionBank != null">
+        COLLECTION_BANK = #{collectionBank,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionAccount != null">
+        COLLECTION_ACCOUNT = #{collectionAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceDepartmentId != null">
+        SERVICE_DEPARTMENT_ID = #{serviceDepartmentId,jdbcType=DECIMAL},
+      </if>
+      <if test="custLevel != null">
+        CUST_LEVEL = #{custLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="localTaxAuthorityId != null">
+        LOCAL_TAX_AUTHORITY_ID = #{localTaxAuthorityId,jdbcType=DECIMAL},
+      </if>
+      <if test="enterpriseScale != null">
+        ENTERPRISE_SCALE = #{enterpriseScale,jdbcType=DECIMAL},
+      </if>
+      <if test="isWithBranches != null">
+        IS_WITH_BRANCHES = #{isWithBranches,jdbcType=DECIMAL},
+      </if>
+      <if test="custNamePinyin != null">
+        CUST_NAME_PINYIN = #{custNamePinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceBusinessTypeId != null">
+        SOURCE_BUSINESS_TYPE_ID = #{sourceBusinessTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="policeId != null">
+        POLICE_ID = #{policeId,jdbcType=DECIMAL},
+      </if>
+      <if test="synDataMark != null">
+        SYN_DATA_MARK = #{synDataMark,jdbcType=DECIMAL},
+      </if>
+      <if test="isBankCollection != null">
+        IS_BANK_COLLECTION = #{isBankCollection,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCode != null">
+        BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCollectionAgreementId != null">
+        BANK_COLLECTION_AGREEMENT_ID = #{bankCollectionAgreementId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCollectionAgreementDate != null">
+        BANK_COLLECTION_AGREEMENT_DATE = #{bankCollectionAgreementDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="importNo != null">
+        IMPORT_NO = #{importNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vpnNo != null">
+        VPN_NO = #{vpnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vpnPass != null">
+        VPN_PASS = #{vpnPass,jdbcType=VARCHAR},
+      </if>
+      <if test="childPoliceId != null">
+        CHILD_POLICE_ID = #{childPoliceId,jdbcType=DECIMAL},
+      </if>
+      <if test="selfSelValue != null">
+        SELF_SEL_VALUE = #{selfSelValue,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine01 != null">
+        USER_DEFINE01 = #{userDefine01,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine02 != null">
+        USER_DEFINE02 = #{userDefine02,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine03 != null">
+        USER_DEFINE03 = #{userDefine03,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine04 != null">
+        USER_DEFINE04 = #{userDefine04,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine05 != null">
+        USER_DEFINE05 = #{userDefine05,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine06 != null">
+        USER_DEFINE06 = #{userDefine06,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine07 != null">
+        USER_DEFINE07 = #{userDefine07,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine08 != null">
+        USER_DEFINE08 = #{userDefine08,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine09 != null">
+        USER_DEFINE09 = #{userDefine09,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine10 != null">
+        USER_DEFINE10 = #{userDefine10,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine11 != null">
+        USER_DEFINE11 = #{userDefine11,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine12 != null">
+        USER_DEFINE12 = #{userDefine12,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine13 != null">
+        USER_DEFINE13 = #{userDefine13,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine14 != null">
+        USER_DEFINE14 = #{userDefine14,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine15 != null">
+        USER_DEFINE15 = #{userDefine15,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine16 != null">
+        USER_DEFINE16 = #{userDefine16,jdbcType=VARCHAR},
+      </if>
+      <if test="isDkh != null">
+        IS_DKH = #{isDkh,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine18 != null">
+        USER_DEFINE18 = #{userDefine18,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine19 != null">
+        USER_DEFINE19 = #{userDefine19,jdbcType=VARCHAR},
+      </if>
+      <if test="userDefine20 != null">
+        USER_DEFINE20 = #{userDefine20,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRate != null">
+        TAX_RATE = #{taxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="merCode != null">
+        MER_CODE = #{merCode,jdbcType=VARCHAR},
+      </if>
+      <if test="merDevproperty != null">
+        MER_DEVPROPERTY = #{merDevproperty,jdbcType=DECIMAL},
+      </if>
+      <if test="merTransaction != null">
+        MER_TRANSACTION = #{merTransaction,jdbcType=VARCHAR},
+      </if>
+      <if test="merBusTime != null">
+        MER_BUS_TIME = #{merBusTime,jdbcType=VARCHAR},
+      </if>
+      <if test="merSingle != null">
+        MER_SINGLE = #{merSingle,jdbcType=VARCHAR},
+      </if>
+      <if test="merCommu != null">
+        MER_COMMU = #{merCommu,jdbcType=VARCHAR},
+      </if>
+      <if test="shopKeyid != null">
+        SHOP_KEYID = #{shopKeyid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOrRe != null">
+        SHOP_OR_RE = #{shopOrRe,jdbcType=CHAR},
+      </if>
+      <if test="selfHy != null">
+        SELF_HY = #{selfHy,jdbcType=DECIMAL},
+      </if>
+      <if test="selfEhy != null">
+        SELF_EHY = #{selfEhy,jdbcType=DECIMAL},
+      </if>
+      <if test="selfShy != null">
+        SELF_SHY = #{selfShy,jdbcType=DECIMAL},
+      </if>
+      <if test="selfIsMoveout != null">
+        SELF_IS_MOVEOUT = #{selfIsMoveout,jdbcType=DECIMAL},
+      </if>
+      <if test="selfIsInstall != null">
+        SELF_IS_INSTALL = #{selfIsInstall,jdbcType=DECIMAL},
+      </if>
+      <if test="selfContractno != null">
+        SELF_CONTRACTNO = #{selfContractno,jdbcType=VARCHAR},
+      </if>
+      <if test="selfCampinc != null">
+        SELF_CAMPINC = #{selfCampinc,jdbcType=DECIMAL},
+      </if>
+      <if test="logoutNote != null">
+        LOGOUT_NOTE = #{logoutNote,jdbcType=DECIMAL},
+      </if>
+      <if test="backupTaxCode != null">
+        BACKUP_TAX_CODE = #{backupTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgMerId != null">
+        ORG_MER_ID = #{orgMerId,jdbcType=VARCHAR},
+      </if>
+      <if test="selfJni != null">
+        SELF_JNI = #{selfJni,jdbcType=DECIMAL},
+      </if>
+      <if test="selfFwuq != null">
+        SELF_FWUQ = #{selfFwuq,jdbcType=DECIMAL},
+      </if>
+      <if test="partaAffiliationCode != null">
+        PARTA_AFFILIATION_CODE = #{partaAffiliationCode,jdbcType=DECIMAL},
+      </if>
+      <if test="relatedPartyCode != null">
+        RELATED_PARTY_CODE = #{relatedPartyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditSign != null">
+        AUDIT_SIGN = #{auditSign,jdbcType=DECIMAL},
+      </if>
+      <if test="selfIsvip != null">
+        SELF_ISVIP = #{selfIsvip,jdbcType=DECIMAL},
+      </if>
+      <if test="resourceCode != null">
+        RESOURCE_CODE = #{resourceCode,jdbcType=DECIMAL},
+      </if>
+      <if test="userDefine17 != null">
+        USER_DEFINE17 = #{userDefine17,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceName != null">
+        INVOICE_NAME = #{invoiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTel != null">
+        INVOICE_TEL = #{invoiceTel,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceAddr != null">
+        INVOICE_ADDR = #{invoiceAddr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORG_CUSTOMER_ID = #{orgCustomerId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aisino.db1.domain.Customer">
+    update CUS_ORG_CUSTOMER
+    set CUST_CLASS_ID = #{custClassId,jdbcType=DECIMAL},
+      CUST_TAX_CODE = #{custTaxCode,jdbcType=VARCHAR},
+      TAX_BUREAU_ID = #{taxBureauId,jdbcType=DECIMAL},
+      SUBSTATION_ID = #{substationId,jdbcType=DECIMAL},
+      SERVICE_PERSONAL_ID = #{servicePersonalId,jdbcType=DECIMAL},
+      ORG_ID = #{orgId,jdbcType=DECIMAL},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      NOTES = #{notes,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      REGION_ID = #{regionId,jdbcType=DECIMAL},
+      ENTERPRISE_TYPE_ID = #{enterpriseTypeId,jdbcType=DECIMAL},
+      VOCATION_ID = #{vocationId,jdbcType=DECIMAL},
+      BUSINESS_SCOPE = #{businessScope,jdbcType=VARCHAR},
+      ACCOUNT_BANK = #{accountBank,jdbcType=VARCHAR},
+      BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+      LEGAL_PERSON = #{legalPerson,jdbcType=VARCHAR},
+      REGISTER_DATE = #{registerDate,jdbcType=TIMESTAMP},
+      IS_MISSING = #{isMissing,jdbcType=DECIMAL},
+      IS_VALID = #{isValid,jdbcType=DECIMAL},
+      CREATER_ID = #{createrId,jdbcType=DECIMAL},
+      UPDATE_OPERATOR_ID = #{updateOperatorId,jdbcType=DECIMAL},
+      SHORTCUT = #{shortcut,jdbcType=VARCHAR},
+      CUSTOMER_ID = #{customerId,jdbcType=DECIMAL},
+      SUB_SECURITY_BUREAU_ID = #{subSecurityBureauId,jdbcType=DECIMAL},
+      STAR_LEVEL_ID = #{starLevelId,jdbcType=VARCHAR},
+      CUST_LEVEL_ID = #{custLevelId,jdbcType=VARCHAR},
+      REGISTERED_FUND = #{registeredFund,jdbcType=DECIMAL},
+      PERSON_COUNT = #{personCount,jdbcType=DECIMAL},
+      ACCOUNTANT_COUNT = #{accountantCount,jdbcType=DECIMAL},
+      CUST_SCALE_ID = #{custScaleId,jdbcType=VARCHAR},
+      COMPUTER_COUNT = #{computerCount,jdbcType=DECIMAL},
+      NETWORK_TYPE_ID = #{networkTypeId,jdbcType=VARCHAR},
+      CREDIT_LEVEL_ID = #{creditLevelId,jdbcType=VARCHAR},
+      CREDIT_LIMIT = #{creditLimit,jdbcType=DECIMAL},
+      CUST_CODE = #{custCode,jdbcType=VARCHAR},
+      GENERAL_MANAGER = #{generalManager,jdbcType=VARCHAR},
+      LOCATION_TYPE_ID = #{locationTypeId,jdbcType=VARCHAR},
+      TRAINING_COUNT = #{trainingCount,jdbcType=DECIMAL},
+      SECURITY_PERSON_COUNT = #{securityPersonCount,jdbcType=DECIMAL},
+      ROOM_COUNT = #{roomCount,jdbcType=DECIMAL},
+      PARENT_ORG_CUSTOMER_ID = #{parentOrgCustomerId,jdbcType=DECIMAL},
+      VOCATION_FORCE_ID = #{vocationForceId,jdbcType=VARCHAR},
+      TEL1 = #{tel1,jdbcType=VARCHAR},
+      TEL2 = #{tel2,jdbcType=VARCHAR},
+      TEL3 = #{tel3,jdbcType=VARCHAR},
+      FAX = #{fax,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      SECURITY_TEL = #{securityTel,jdbcType=VARCHAR},
+      BED_COUNT = #{bedCount,jdbcType=DECIMAL},
+      SECURITY_PERSON = #{securityPerson,jdbcType=VARCHAR},
+      REMARK_INFO = #{remarkInfo,jdbcType=VARCHAR},
+      MANAGER_ORG = #{managerOrg,jdbcType=VARCHAR},
+      POLICE_STATION = #{policeStation,jdbcType=VARCHAR},
+      SUB_COUNTY_CODE = #{subCountyCode,jdbcType=VARCHAR},
+      SUB_SECURITY_BUREAU = #{subSecurityBureau,jdbcType=VARCHAR},
+      REGISTER_PERSON = #{registerPerson,jdbcType=VARCHAR},
+      OWN_CUSTOMER_ID = #{ownCustomerId,jdbcType=VARCHAR},
+      CREATE_FROM = #{createFrom,jdbcType=DECIMAL},
+      STATE = #{state,jdbcType=DECIMAL},
+      COLLECTION_BANK = #{collectionBank,jdbcType=VARCHAR},
+      COLLECTION_ACCOUNT = #{collectionAccount,jdbcType=VARCHAR},
+      SERVICE_DEPARTMENT_ID = #{serviceDepartmentId,jdbcType=DECIMAL},
+      CUST_LEVEL = #{custLevel,jdbcType=DECIMAL},
+      LOCAL_TAX_AUTHORITY_ID = #{localTaxAuthorityId,jdbcType=DECIMAL},
+      ENTERPRISE_SCALE = #{enterpriseScale,jdbcType=DECIMAL},
+      IS_WITH_BRANCHES = #{isWithBranches,jdbcType=DECIMAL},
+      CUST_NAME_PINYIN = #{custNamePinyin,jdbcType=VARCHAR},
+      SOURCE_BUSINESS_TYPE_ID = #{sourceBusinessTypeId,jdbcType=DECIMAL},
+      POLICE_ID = #{policeId,jdbcType=DECIMAL},
+      SYN_DATA_MARK = #{synDataMark,jdbcType=DECIMAL},
+      IS_BANK_COLLECTION = #{isBankCollection,jdbcType=DECIMAL},
+      BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      BANK_COLLECTION_AGREEMENT_ID = #{bankCollectionAgreementId,jdbcType=VARCHAR},
+      BANK_COLLECTION_AGREEMENT_DATE = #{bankCollectionAgreementDate,jdbcType=TIMESTAMP},
+      IMPORT_NO = #{importNo,jdbcType=VARCHAR},
+      VPN_NO = #{vpnNo,jdbcType=VARCHAR},
+      VPN_PASS = #{vpnPass,jdbcType=VARCHAR},
+      CHILD_POLICE_ID = #{childPoliceId,jdbcType=DECIMAL},
+      SELF_SEL_VALUE = #{selfSelValue,jdbcType=VARCHAR},
+      USER_DEFINE01 = #{userDefine01,jdbcType=VARCHAR},
+      USER_DEFINE02 = #{userDefine02,jdbcType=VARCHAR},
+      USER_DEFINE03 = #{userDefine03,jdbcType=VARCHAR},
+      USER_DEFINE04 = #{userDefine04,jdbcType=VARCHAR},
+      USER_DEFINE05 = #{userDefine05,jdbcType=VARCHAR},
+      USER_DEFINE06 = #{userDefine06,jdbcType=VARCHAR},
+      USER_DEFINE07 = #{userDefine07,jdbcType=VARCHAR},
+      USER_DEFINE08 = #{userDefine08,jdbcType=VARCHAR},
+      USER_DEFINE09 = #{userDefine09,jdbcType=VARCHAR},
+      USER_DEFINE10 = #{userDefine10,jdbcType=VARCHAR},
+      USER_DEFINE11 = #{userDefine11,jdbcType=VARCHAR},
+      USER_DEFINE12 = #{userDefine12,jdbcType=VARCHAR},
+      USER_DEFINE13 = #{userDefine13,jdbcType=VARCHAR},
+      USER_DEFINE14 = #{userDefine14,jdbcType=VARCHAR},
+      USER_DEFINE15 = #{userDefine15,jdbcType=VARCHAR},
+      USER_DEFINE16 = #{userDefine16,jdbcType=VARCHAR},
+      IS_DKH = #{isDkh,jdbcType=VARCHAR},
+      USER_DEFINE18 = #{userDefine18,jdbcType=VARCHAR},
+      USER_DEFINE19 = #{userDefine19,jdbcType=VARCHAR},
+      USER_DEFINE20 = #{userDefine20,jdbcType=VARCHAR},
+      TAX_RATE = #{taxRate,jdbcType=VARCHAR},
+      MER_CODE = #{merCode,jdbcType=VARCHAR},
+      MER_DEVPROPERTY = #{merDevproperty,jdbcType=DECIMAL},
+      MER_TRANSACTION = #{merTransaction,jdbcType=VARCHAR},
+      MER_BUS_TIME = #{merBusTime,jdbcType=VARCHAR},
+      MER_SINGLE = #{merSingle,jdbcType=VARCHAR},
+      MER_COMMU = #{merCommu,jdbcType=VARCHAR},
+      SHOP_KEYID = #{shopKeyid,jdbcType=VARCHAR},
+      SHOP_OR_RE = #{shopOrRe,jdbcType=CHAR},
+      SELF_HY = #{selfHy,jdbcType=DECIMAL},
+      SELF_EHY = #{selfEhy,jdbcType=DECIMAL},
+      SELF_SHY = #{selfShy,jdbcType=DECIMAL},
+      SELF_IS_MOVEOUT = #{selfIsMoveout,jdbcType=DECIMAL},
+      SELF_IS_INSTALL = #{selfIsInstall,jdbcType=DECIMAL},
+      SELF_CONTRACTNO = #{selfContractno,jdbcType=VARCHAR},
+      SELF_CAMPINC = #{selfCampinc,jdbcType=DECIMAL},
+      LOGOUT_NOTE = #{logoutNote,jdbcType=DECIMAL},
+      BACKUP_TAX_CODE = #{backupTaxCode,jdbcType=VARCHAR},
+      ORG_MER_ID = #{orgMerId,jdbcType=VARCHAR},
+      SELF_JNI = #{selfJni,jdbcType=DECIMAL},
+      SELF_FWUQ = #{selfFwuq,jdbcType=DECIMAL},
+      PARTA_AFFILIATION_CODE = #{partaAffiliationCode,jdbcType=DECIMAL},
+      RELATED_PARTY_CODE = #{relatedPartyCode,jdbcType=VARCHAR},
+      AUDIT_SIGN = #{auditSign,jdbcType=DECIMAL},
+      SELF_ISVIP = #{selfIsvip,jdbcType=DECIMAL},
+      RESOURCE_CODE = #{resourceCode,jdbcType=DECIMAL},
+      USER_DEFINE17 = #{userDefine17,jdbcType=VARCHAR},
+      INVOICE_NAME = #{invoiceName,jdbcType=VARCHAR},
+      INVOICE_TEL = #{invoiceTel,jdbcType=VARCHAR},
+      INVOICE_ADDR = #{invoiceAddr,jdbcType=VARCHAR}
+    where ORG_CUSTOMER_ID = #{orgCustomerId,jdbcType=DECIMAL}
+  </update>
+</mapper>

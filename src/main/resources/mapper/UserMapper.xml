@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aisino.db2.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.aisino.db2.domain.User">
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userdesc" jdbcType="VARCHAR" property="userdesc" />
+    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
+    <result column="corp" jdbcType="VARCHAR" property="corp" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="postalcode" jdbcType="VARCHAR" property="postalcode" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="createuser" jdbcType="VARCHAR" property="createuser" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="updateuser" jdbcType="VARCHAR" property="updateuser" />
+    <result column="valid" jdbcType="VARCHAR" property="valid" />
+    <result column="czry_dm" jdbcType="CHAR" property="czryDm" />
+    <result column="swjg_dm" jdbcType="CHAR" property="swjgDm" />
+    <result column="czry_mc" jdbcType="VARCHAR" property="czryMc" />
+    <result column="swry_dm" jdbcType="VARCHAR" property="swryDm" />
+    <result column="qx_swjg_dm" jdbcType="VARCHAR" property="qxSwjgDm" />
+    <result column="xybz" jdbcType="CHAR" property="xybz" />
+    <result column="yxbz" jdbcType="CHAR" property="yxbz" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    userid, username, userdesc, passwd, corp, phone, mobile, email, address, postalcode, 
+    createtime, createuser, updatetime, updateuser, valid, czry_dm, swjg_dm, czry_mc, 
+    swry_dm, qx_swjg_dm, xybz, yxbz
+  </sql>
+  <select id="selectByExample" parameterType="com.aisino.db2.domain.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from MSP_SEC_USER_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.aisino.db2.domain.UserExample">
+    delete from MSP_SEC_USER_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.aisino.db2.domain.User">
+    insert into MSP_SEC_USER_TAB (userid, username, userdesc, 
+      passwd, corp, phone, 
+      mobile, email, address, 
+      postalcode, createtime, createuser, 
+      updatetime, updateuser, valid, 
+      czry_dm, swjg_dm, czry_mc, swry_dm, 
+      qx_swjg_dm, xybz, yxbz)
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{userdesc,jdbcType=VARCHAR}, 
+      #{passwd,jdbcType=VARCHAR}, #{corp,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{postalcode,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{createuser,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR}, #{updateuser,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{czryDm,jdbcType=CHAR}, #{swjgDm,jdbcType=CHAR}, #{czryMc,jdbcType=VARCHAR}, #{swryDm,jdbcType=VARCHAR}, 
+      #{qxSwjgDm,jdbcType=VARCHAR}, #{xybz,jdbcType=CHAR}, #{yxbz,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aisino.db2.domain.User">
+    insert into MSP_SEC_USER_TAB
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userdesc != null">
+        userdesc,
+      </if>
+      <if test="passwd != null">
+        passwd,
+      </if>
+      <if test="corp != null">
+        corp,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="postalcode != null">
+        postalcode,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="createuser != null">
+        createuser,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="updateuser != null">
+        updateuser,
+      </if>
+      <if test="valid != null">
+        valid,
+      </if>
+      <if test="czryDm != null">
+        czry_dm,
+      </if>
+      <if test="swjgDm != null">
+        swjg_dm,
+      </if>
+      <if test="czryMc != null">
+        czry_mc,
+      </if>
+      <if test="swryDm != null">
+        swry_dm,
+      </if>
+      <if test="qxSwjgDm != null">
+        qx_swjg_dm,
+      </if>
+      <if test="xybz != null">
+        xybz,
+      </if>
+      <if test="yxbz != null">
+        yxbz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userdesc != null">
+        #{userdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="corp != null">
+        #{corp,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postalcode != null">
+        #{postalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateuser != null">
+        #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="czryDm != null">
+        #{czryDm,jdbcType=CHAR},
+      </if>
+      <if test="swjgDm != null">
+        #{swjgDm,jdbcType=CHAR},
+      </if>
+      <if test="czryMc != null">
+        #{czryMc,jdbcType=VARCHAR},
+      </if>
+      <if test="swryDm != null">
+        #{swryDm,jdbcType=VARCHAR},
+      </if>
+      <if test="qxSwjgDm != null">
+        #{qxSwjgDm,jdbcType=VARCHAR},
+      </if>
+      <if test="xybz != null">
+        #{xybz,jdbcType=CHAR},
+      </if>
+      <if test="yxbz != null">
+        #{yxbz,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.aisino.db2.domain.UserExample" resultType="java.lang.Long">
+    select count(*) from MSP_SEC_USER_TAB
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update MSP_SEC_USER_TAB
+    <set>
+      <if test="record.userid != null">
+        userid = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userdesc != null">
+        userdesc = #{record.userdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.passwd != null">
+        passwd = #{record.passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.corp != null">
+        corp = #{record.corp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postalcode != null">
+        postalcode = #{record.postalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        createtime = #{record.createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createuser != null">
+        createuser = #{record.createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetime != null">
+        updatetime = #{record.updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateuser != null">
+        updateuser = #{record.updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.valid != null">
+        valid = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.czryDm != null">
+        czry_dm = #{record.czryDm,jdbcType=CHAR},
+      </if>
+      <if test="record.swjgDm != null">
+        swjg_dm = #{record.swjgDm,jdbcType=CHAR},
+      </if>
+      <if test="record.czryMc != null">
+        czry_mc = #{record.czryMc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swryDm != null">
+        swry_dm = #{record.swryDm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qxSwjgDm != null">
+        qx_swjg_dm = #{record.qxSwjgDm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xybz != null">
+        xybz = #{record.xybz,jdbcType=CHAR},
+      </if>
+      <if test="record.yxbz != null">
+        yxbz = #{record.yxbz,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update MSP_SEC_USER_TAB
+    set userid = #{record.userid,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      userdesc = #{record.userdesc,jdbcType=VARCHAR},
+      passwd = #{record.passwd,jdbcType=VARCHAR},
+      corp = #{record.corp,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      postalcode = #{record.postalcode,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=VARCHAR},
+      createuser = #{record.createuser,jdbcType=VARCHAR},
+      updatetime = #{record.updatetime,jdbcType=VARCHAR},
+      updateuser = #{record.updateuser,jdbcType=VARCHAR},
+      valid = #{record.valid,jdbcType=VARCHAR},
+      czry_dm = #{record.czryDm,jdbcType=CHAR},
+      swjg_dm = #{record.swjgDm,jdbcType=CHAR},
+      czry_mc = #{record.czryMc,jdbcType=VARCHAR},
+      swry_dm = #{record.swryDm,jdbcType=VARCHAR},
+      qx_swjg_dm = #{record.qxSwjgDm,jdbcType=VARCHAR},
+      xybz = #{record.xybz,jdbcType=CHAR},
+      yxbz = #{record.yxbz,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <!--List<String> getDistinctCorps();-->
+  <select id="getDistinctCorps" resultType="string">
+    SELECT DISTINCT [corp] FROM MSP_SEC_USER_TAB
+  </select>
+</mapper>
