@@ -1,10 +1,8 @@
 package com.aisino.db2.dao;
 
 import com.aisino.db2.domain.VerificationCode;
-
-import java.util.List;
-
 import com.aisino.db2.domain.VerificationCodeExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface VerificationCodeMapper {

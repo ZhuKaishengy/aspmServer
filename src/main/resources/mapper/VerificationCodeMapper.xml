@@ -7,6 +7,7 @@
     <result column="ImageTip" jdbcType="VARCHAR" property="imagetip" />
     <result column="Content" jdbcType="VARCHAR" property="content" />
     <result column="Verify" jdbcType="BIT" property="verify" />
+    <result column="Md5" jdbcType="VARCHAR" property="md5" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.aisino.db2.domain.VerificationCode">
     <result column="Image" jdbcType="LONGVARBINARY" property="image" />
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, Zone, ImageTip, Content, Verify
+    ID, Zone, ImageTip, Content, Verify, Md5
   </sql>
   <sql id="Blob_Column_List">
     Image
@@ -125,10 +126,10 @@
   </delete>
   <insert id="insert" parameterType="com.aisino.db2.domain.VerificationCode">
     insert into VerificationCode (ID, Zone, ImageTip, 
-      Content, Verify, Image
+      Content, Verify, Md5, Image
       )
     values (#{id,jdbcType=VARCHAR}, #{zone,jdbcType=CHAR}, #{imagetip,jdbcType=VARCHAR}, 
-      #{content,jdbcType=VARCHAR}, #{verify,jdbcType=BIT}, #{image,jdbcType=LONGVARBINARY}
+      #{content,jdbcType=VARCHAR}, #{verify,jdbcType=BIT}, #{md5,jdbcType=VARCHAR}, #{image,jdbcType=LONGVARBINARY}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.aisino.db2.domain.VerificationCode">
@@ -149,6 +150,9 @@
       <if test="verify != null">
         Verify,
       </if>
+      <if test="md5 != null">
+        Md5,
+      </if>
       <if test="image != null">
         Image,
       </if>
@@ -168,6 +172,9 @@
       </if>
       <if test="verify != null">
         #{verify,jdbcType=BIT},
+      </if>
+      <if test="md5 != null">
+        #{md5,jdbcType=VARCHAR},
       </if>
       <if test="image != null">
         #{image,jdbcType=LONGVARBINARY},
@@ -198,6 +205,9 @@
       <if test="record.verify != null">
         Verify = #{record.verify,jdbcType=BIT},
       </if>
+      <if test="record.md5 != null">
+        Md5 = #{record.md5,jdbcType=VARCHAR},
+      </if>
       <if test="record.image != null">
         Image = #{record.image,jdbcType=LONGVARBINARY},
       </if>
@@ -213,6 +223,7 @@
       ImageTip = #{record.imagetip,jdbcType=VARCHAR},
       Content = #{record.content,jdbcType=VARCHAR},
       Verify = #{record.verify,jdbcType=BIT},
+      Md5 = #{record.md5,jdbcType=VARCHAR},
       Image = #{record.image,jdbcType=LONGVARBINARY}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -224,7 +235,8 @@
       Zone = #{record.zone,jdbcType=CHAR},
       ImageTip = #{record.imagetip,jdbcType=VARCHAR},
       Content = #{record.content,jdbcType=VARCHAR},
-      Verify = #{record.verify,jdbcType=BIT}
+      Verify = #{record.verify,jdbcType=BIT},
+      Md5 = #{record.md5,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -244,6 +256,9 @@
       <if test="verify != null">
         Verify = #{verify,jdbcType=BIT},
       </if>
+      <if test="md5 != null">
+        Md5 = #{md5,jdbcType=VARCHAR},
+      </if>
       <if test="image != null">
         Image = #{image,jdbcType=LONGVARBINARY},
       </if>
@@ -256,6 +271,7 @@
       ImageTip = #{imagetip,jdbcType=VARCHAR},
       Content = #{content,jdbcType=VARCHAR},
       Verify = #{verify,jdbcType=BIT},
+      Md5 = #{md5,jdbcType=VARCHAR},
       Image = #{image,jdbcType=LONGVARBINARY}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
@@ -264,7 +280,8 @@
     set Zone = #{zone,jdbcType=CHAR},
       ImageTip = #{imagetip,jdbcType=VARCHAR},
       Content = #{content,jdbcType=VARCHAR},
-      Verify = #{verify,jdbcType=BIT}
+      Verify = #{verify,jdbcType=BIT},
+      Md5 = #{md5,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

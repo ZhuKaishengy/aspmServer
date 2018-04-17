@@ -14,6 +14,15 @@ spring:
       url: jdbc:sqlserver://192.168.0.92:1433;DatabaseName=Aisino_Service_Platform
   profiles:
     active: dev
+  redis:
+    database: 0
+    host: 192.168.0.148
+    port: 6379
+    password: 123456
+    pool:
+      max-active: -1
+      max-idle: -1
+      max-wait: 100000
 server:
   port: 9001
 ---

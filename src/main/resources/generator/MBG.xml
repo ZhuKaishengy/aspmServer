@@ -44,9 +44,9 @@
 
          <!-- 这里是数据库的表名table_user 以及 POJO类的名字User -->
 
-       	<table tableName="ASP_PRODUCT_INFO_TAB" domainObjectName="Product"></table>
-       	<table tableName="MSP_SEC_USER_TAB" domainObjectName="User"></table>
-       	<table tableName="ASP_AUTH_INFO_TAB" domainObjectName="Auth"></table>
+       	<table tableName="VerificationCode" domainObjectName="VerificationCode"></table>
+       	<!--<table tableName="MSP_SEC_USER_TAB" domainObjectName="User"></table>-->
+       	<!--<table tableName="ASP_AUTH_INFO_TAB" domainObjectName="Auth"></table>-->
         <!-- <table tableName="ASN_ROLE" domainObjectName="Role"></table>
         <table tableName="ASN_PERMISSION" domainObjectName="Permission"></table>
         <table tableName="ASN_USER_ROLE" domainObjectName="UserRole"></table>

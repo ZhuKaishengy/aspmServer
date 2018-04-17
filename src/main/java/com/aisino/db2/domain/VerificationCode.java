@@ -2,6 +2,8 @@ package com.aisino.db2.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.util.Arrays;
+
 public class VerificationCode {
     private String id;
 
@@ -12,6 +14,8 @@ public class VerificationCode {
     private String content;
 
     private byte verify;
+
+    private String md5;
 
     @JsonDeserialize
     private byte[] image;
@@ -56,11 +60,44 @@ public class VerificationCode {
         this.verify = verify;
     }
 
+    public String getMd5() {
+        return md5;
+    }
+
+    public void setMd5(String md5) {
+        this.md5 = md5 == null ? null : md5.trim();
+    }
+
     public byte[] getImage() {
         return image;
     }
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "VerificationCode{" +
+                "id='" + id + '\'' +
+                ", zone='" + zone + '\'' +
+                ", imagetip='" + imagetip + '\'' +
+                ", content='" + content + '\'' +
+                ", verify=" + verify +
+                ", md5='" + md5 + '\'' +
+                ", image=" + Arrays.toString(image) +
+                '}';
+    }
+
+    public VerificationCode(String id, String zone, String imagetip, byte verify, String md5, byte[] image) {
+        this.id = id;
+        this.zone = zone;
+        this.imagetip = imagetip;
+        this.verify = verify;
+        this.md5 = md5;
+        this.image = image;
+    }
+
+    public VerificationCode() {
     }
 }

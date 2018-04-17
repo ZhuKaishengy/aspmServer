@@ -443,6 +443,76 @@ public class VerificationCodeExample {
             addCriterion("Verify not between", value1, value2, "verify");
             return (Criteria) this;
         }
+
+        public Criteria andMd5IsNull() {
+            addCriterion("Md5 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5IsNotNull() {
+            addCriterion("Md5 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5EqualTo(String value) {
+            addCriterion("Md5 =", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5NotEqualTo(String value) {
+            addCriterion("Md5 <>", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5GreaterThan(String value) {
+            addCriterion("Md5 >", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5GreaterThanOrEqualTo(String value) {
+            addCriterion("Md5 >=", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5LessThan(String value) {
+            addCriterion("Md5 <", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5LessThanOrEqualTo(String value) {
+            addCriterion("Md5 <=", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5Like(String value) {
+            addCriterion("Md5 like", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5NotLike(String value) {
+            addCriterion("Md5 not like", value, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5In(List<String> values) {
+            addCriterion("Md5 in", values, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5NotIn(List<String> values) {
+            addCriterion("Md5 not in", values, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5Between(String value1, String value2) {
+            addCriterion("Md5 between", value1, value2, "md5");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5NotBetween(String value1, String value2) {
+            addCriterion("Md5 not between", value1, value2, "md5");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
