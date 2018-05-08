@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by zhukaishengy on 2018/3/21.
+ * 注意：@SpringBootApplication注解是一个组合注解，包括自动扫描包，只能扫描到主配置类所在的包
  */
 @EnableTransactionManagement
 @SpringBootApplication

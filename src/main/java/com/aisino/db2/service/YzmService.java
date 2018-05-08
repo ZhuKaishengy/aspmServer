@@ -1,6 +1,7 @@
 package com.aisino.db2.service;
 
 import org.apache.log4j.Logger;
+import org.junit.Test;
 import org.springframework.stereotype.Service;
 import sun.misc.BASE64Decoder;
 
@@ -17,6 +18,11 @@ public class YzmService {
 
     private static Logger logger = Logger.getLogger(YzmService.class);
 
+    @Test
+    public void test(){
+        String ae = this.getYzmMd5("吗");
+        System.out.println(ae);
+    }
     /**
      * 根据真实的验证码md5加密，得到加密后的字符串
      * @param afeax
